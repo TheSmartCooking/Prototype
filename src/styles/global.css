@@ -16,6 +16,18 @@
     --border-radius-small: 8px;
     --border-radius-medium: 16px;
     --border-radius-large: 32px;
+
+    /*
+    Define a polaroid informations.
+    Use these to create a consistent look and feel for the recipe cards.
+     */
+    --polaroid-color: light-dark(#e9e9e9, #161616);
+    --polaroid-height: 107mm;
+    --polaroid-photo-size: 79mm;
+    --polaroid-width: 88mm;
+    --polaroid-margin-top: calc(
+        (var(--polaroid-width) - var(--polaroid-photo-size)) / 2
+    );
 }
 
 * {

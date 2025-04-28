@@ -1,0 +1,57 @@
+[
+    {
+        "author_id": 1,
+        "author_name": "John Doe",
+        "cook_time": 5,
+        "difficulty_level": 1,
+        "number_of_reviews": null,
+        "picture_id": 1,
+        "recipe_id": 1,
+        "recipe_status": 1,
+        "title": "Title 1"
+    },
+    {
+        "author_id": 2,
+        "author_name": "Jane Smith",
+        "cook_time": 5,
+        "difficulty_level": 1,
+        "number_of_reviews": null,
+        "picture_id": 2,
+        "recipe_id": 2,
+        "recipe_status": 1,
+        "title": "Title 2"
+    },
+    {
+        "author_id": 3,
+        "author_name": "Alice Brown",
+        "cook_time": 10,
+        "difficulty_level": 2,
+        "number_of_reviews": null,
+        "picture_id": 3,
+        "recipe_id": 3,
+        "recipe_status": 1,
+        "title": "Title 3"
+    },
+    {
+        "author_id": 4,
+        "author_name": "Bob White",
+        "cook_time": 15,
+        "difficulty_level": 3,
+        "number_of_reviews": null,
+        "picture_id": 4,
+        "recipe_id": 4,
+        "recipe_status": 1,
+        "title": "Title 4"
+    },
+    {
+        "author_id": 4,
+        "author_name": "Bob White",
+        "cook_time": 100,
+        "difficulty_level": 3,
+        "number_of_reviews": null,
+        "picture_id": 5,
+        "recipe_id": 5,
+        "recipe_status": 1,
+        "title": "Title 5"
+    }
+]
