@@ -17,12 +17,12 @@ const {
     <div class="recipe-polaroid">
         <div class="card-body" style=`background-image: url("recipe/${picture_id}.png");`>
             <div class="card-top">
-                <div class="card-text cook-time">⏱ {cook_time}</div>
-                <div class="card-text recipe-status">{recipe_status}</div>
+                <span class="card-text cook-time">⏱ {cook_time}</span>
+                <span class="card-text recipe-status">{recipe_status}</span>
             </div>
             <div class="card-bottom">
-                <div class="card-text recipe-author">@{author_name}</div>
-                <div class="card-text recipe-likes">{number_of_reviews || 0} likes</div>
+                <span class="card-text recipe-author">@{author_name}</span>
+                <span class="card-text recipe-likes">{number_of_reviews || 0} likes</span>
             </div>
         </div>
         <div class="recipe-title">
@@ -65,9 +65,9 @@ const {
         width: var(--polaroid-photo-size);
     }
 
-    .card-body * {
+    .card-text {
         filter: drop-shadow(0 0 var(--spacing-small) var(--polaroid-color));
-        font-size: var(--font-size-body);
+        font-size: var(--spacing-medium);
     }
 
     .card-top,
