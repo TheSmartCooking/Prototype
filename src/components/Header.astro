@@ -1,0 +1,46 @@
+---
+import '/src/styles/global.css';
+import Icon from "/src/components/Icon.astro";
+
+import { SITE_NAME } from '/src/config.js';
+---
+
+<header>
+    <h1>{ SITE_NAME }</h1>
+    <nav>
+        <ul>
+        </ul>
+    </nav>
+</header>
+
+<style>
+    header {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    ul {
+        display: flex;
+        gap: var(--spacing-medium);
+        list-style: none;
+    }
+
+    header>*:first-child,
+    header>*:last-child {
+        margin: 0 var(--spacing-medium);
+    }
+
+    @media screen and (width<=850px) {
+        header {
+            align-items: center;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        header>*:first-child,
+        header>*:last-child {
+            margin: 0;
+        }
+    }
+</style>

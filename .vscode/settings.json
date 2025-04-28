@@ -5,7 +5,16 @@
     "editor.tabSize": 4,
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
-    "files.trimTrailingWhitespace": false,
+    "files.trimTrailingWhitespace": true,
+    "emeraldwalk.runonsave": {
+        "commands": [
+            {
+                "match": "\\.(js|ts|vue|json|css|scss|md|html)$",
+                "cmd": "npx prettier --write \"${file}\"",
+                "autoShowOutputPanel": "error"
+            }
+        ]
+    },
     "[yaml]": {
         "editor.tabSize": 2
     }
