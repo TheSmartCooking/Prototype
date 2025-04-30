@@ -1,17 +1,19 @@
 ---
-import '../styles/global.css';
-import Icon from "../components/Icon.astro";
+import '../styles/global.css'
+import Icon from '../components/Icon.astro'
 
-import { SITE_NAME } from '../config.js';
+import { SITE_NAME } from '../config.js'
 ---
 
 <header>
-    <a href="index.html"><h1>{ SITE_NAME }</h1></a>
+    <a href="index.html"><h1>{SITE_NAME}</h1></a>
     <nav>
         <ul>
             <li><a href="contact.html"><Icon name="mail-question" /></a></li>
             <li><a href="privacy.html"><Icon name="file-text-shield" /></a></li>
-            <li><a href="authentication.html"><Icon name="user-circle" /></a></li>
+            <li>
+                <a href="authentication.html"><Icon name="user-circle" /></a>
+            </li>
         </ul>
     </nav>
 </header>
@@ -30,8 +32,8 @@ import { SITE_NAME } from '../config.js';
         list-style: none;
     }
 
-    header>*:first-child,
-    header>*:last-child {
+    header > *:first-child,
+    header > *:last-child {
         margin: 0 var(--spacing-medium);
     }
 
@@ -42,8 +44,8 @@ import { SITE_NAME } from '../config.js';
             gap: 0;
         }
 
-        header>*:first-child,
-        header>*:last-child {
+        header > *:first-child,
+        header > *:last-child {
             margin: 0;
         }
     }
