@@ -9,6 +9,10 @@ const {
     recipe_status,
     title,
 } = Astro.props
+
+function randint(min: number, max: number) {
+    return Math.floor(Math.random() * (max - min + 1) + min)
+}
 ---
 
 <Fragment>
@@ -24,10 +28,7 @@ const {
             <div class="card-bottom">
                 <span class="card-text recipe-author">@{author_name}</span>
                 <span class="card-text recipe-likes">
-                    {
-                        number_of_reviews ||
-                            Math.floor(Math.random() * (99 - 0 + 1) + 0)
-                    } likes
+                    {number_of_reviews || randint(0, 99)} likes
                 </span>
             </div>
         </div>
