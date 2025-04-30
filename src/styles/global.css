@@ -55,6 +55,7 @@ a {
 
 h1 {
     font-size: var(--spacing-large);
+    line-height: var(--spacing-large);
 }
 
 svg {
