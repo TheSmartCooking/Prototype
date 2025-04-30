@@ -2,13 +2,10 @@
 import '../styles/global.css'
 
 const {
-    author_id,
     author_name,
     cook_time,
-    difficulty_level,
     number_of_reviews,
     picture_id,
-    recipe_id,
     recipe_status,
     title,
 } = Astro.props
@@ -55,10 +52,15 @@ const {
         display: flex;
         flex-direction: column;
         justify-content: center;
+        overflow: hidden;
+        white-space: nowrap;
     }
 
     .recipe-title > h1 {
         color: light-dark(var(--color-secondary), var(--color-primary));
+        text-align: center;
+        text-overflow: ellipsis;
+        width: calc(var(--polaroid-width) - var(--spacing-small));
     }
 
     .card-body {
