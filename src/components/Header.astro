@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css'
 import Icon from '../components/Icon.astro'
+import SearchBar from '../components/SearchBar.astro'
 
 import { SITE_NAME } from '../config.js'
 ---
@@ -10,6 +11,7 @@ import { SITE_NAME } from '../config.js'
         <Icon name="home" />
         <h1>{SITE_NAME}</h1>
     </a>
+    <SearchBar placeholder="Search..." />
     <nav>
         <ul>
             <li title="Account">
@@ -20,10 +22,15 @@ import { SITE_NAME } from '../config.js'
 </header>
 
 <style>
+    h1 {
+        text-wrap: nowrap;
+    }
+
     header {
         background-color: var(--color-primary);
         display: flex;
         justify-content: space-between;
+        gap: var(--spacing-medium);
         width: 100%;
     }
 
@@ -44,7 +51,7 @@ import { SITE_NAME } from '../config.js'
         margin: 0 var(--spacing-medium);
     }
 
-    @media screen and (width<=850px) {
+    @media screen and (width<=1000px) {
         header {
             align-items: center;
             flex-direction: column;
@@ -55,12 +62,9 @@ import { SITE_NAME } from '../config.js'
         header > *:last-child {
             margin: 0;
         }
-    }
 
-    @media screen and (width<=850px) {
         h1 {
-            font-size: calc(1.5 * var(--spacing-medium));
-            line-height: calc(2.25 * var(--spacing-medium));
+            font-size: 1.75rem;
         }
 
         svg {
