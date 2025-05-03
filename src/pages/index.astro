@@ -4,7 +4,7 @@ import RecipeCard from '../components/RecipeCard.astro'
 import recipes from '../assets/recipes.json'
 ---
 
-<Main title="Home">
+<Main title="Home" canSearch={true}>
     <section id="recipes-list">
         {
             recipes.map((recipe) => (
@@ -39,7 +39,6 @@ import recipes from '../assets/recipes.json'
             flex-wrap: wrap;
             gap: var(--spacing-medium);
             justify-content: center;
-            flex: 1;
         }
     </style>
 </Main>

@@ -4,6 +4,7 @@ import Icon from '../components/Icon.astro'
 import SearchBar from '../components/SearchBar.astro'
 
 import { SITE_NAME } from '../config.js'
+const { canSearch = false } = Astro.props || {}
 ---
 
 <header class="show">
@@ -11,7 +12,7 @@ import { SITE_NAME } from '../config.js'
         <Icon name="home" />
         <h1>{SITE_NAME}</h1>
     </a>
-    <SearchBar placeholder="Search for recipes..." />
+    {canSearch && <SearchBar placeholder="Search for recipes..." />}
     <nav>
         <ul>
             <li title="Account">
