@@ -1,0 +1,110 @@
+---
+import '../styles/global.css'
+
+const {
+    author_name,
+    cook_time,
+    number_of_reviews,
+    picture_id,
+    recipe_status,
+    title,
+} = Astro.props
+
+function randint(min: number, max: number) {
+    return Math.floor(Math.random() * (max - min + 1) + min)
+}
+---
+
+<Fragment>
+    <div class="recipe-polaroid">
+        <div
+            class="card-body"
+            style=`background-image: url("recipe/${picture_id}.png");`
+        >
+            <div class="card-top">
+                <span class="card-text cook-time">⏱️ {cook_time}</span>
+                <span class="card-text recipe-status">{recipe_status}</span>
+            </div>
+            <div class="card-bottom">
+                <span class="card-text recipe-author">@{author_name}</span>
+                <span class="card-text recipe-likes">
+                    {number_of_reviews || randint(0, 99)} likes
+                </span>
+            </div>
+        </div>
+        <div class="recipe-title">
+            <h1 title={title}>{title}</h1>
+        </div>
+    </div>
+</Fragment>
+
+<style>
+    h1 {
+        font-size: calc(1.5 * var(--spacing-medium));
+    }
+
+    .recipe-polaroid {
+        align-items: center;
+        background-color: var(--polaroid-color);
+        border: 1px solid #888;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        height: var(--polaroid-height);
+        user-select: none;
+        width: var(--polaroid-width);
+    }
+
+    .recipe-title {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .recipe-title > h1 {
+        color: light-dark(var(--color-secondary), var(--color-primary));
+        overflow: hidden;
+        text-align: center;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: calc(var(--polaroid-width) - var(--spacing-small));
+    }
+
+    .card-body {
+        background-size: cover;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-top: var(--polaroid-margin-top);
+        min-height: var(--polaroid-photo-size);
+        width: var(--polaroid-photo-size);
+    }
+
+    .card-text {
+        filter: drop-shadow(0 0 5px var(--polaroid-color));
+        font-size: var(--spacing-medium);
+    }
+
+    .card-top,
+    .card-bottom {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    /* The status will not be displayed for now */
+    .recipe-status {
+        display: none;
+    }
+
+    /* Pseudo-elements */
+
+    .card:hover {
+        filter: brightness(1.1);
+        transform: rotate(2deg);
+    }
+
+    .cook-time::after {
+        content: "'";
+    }
+</style>

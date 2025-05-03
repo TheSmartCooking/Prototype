@@ -1,23 +1,36 @@
 ---
-import '/src/styles/global.css';
-import Icon from "/src/components/Icon.astro";
+import '../styles/global.css'
+import Icon from '../components/Icon.astro'
 
-import { SITE_NAME } from '/src/config.js';
+import { SITE_NAME } from '../config.js'
 ---
 
 <header>
-    <h1>{ SITE_NAME }</h1>
+    <a href="index.html" title="Home">
+        <Icon name="home" />
+        <h1>{SITE_NAME}</h1>
+    </a>
     <nav>
         <ul>
+            <li title="Account">
+                <a href="authentication.html"><Icon name="user-circle" /></a>
+            </li>
         </ul>
     </nav>
 </header>
 
 <style>
     header {
+        background-color: var(--color-primary);
         display: flex;
         justify-content: space-between;
         width: 100%;
+    }
+
+    header > a {
+        display: flex;
+        gap: var(--spacing-small);
+        text-decoration: none;
     }
 
     ul {
@@ -26,8 +39,8 @@ import { SITE_NAME } from '/src/config.js';
         list-style: none;
     }
 
-    header>*:first-child,
-    header>*:last-child {
+    header > *:first-child,
+    header > *:last-child {
         margin: 0 var(--spacing-medium);
     }
 
@@ -38,9 +51,21 @@ import { SITE_NAME } from '/src/config.js';
             gap: 0;
         }
 
-        header>*:first-child,
-        header>*:last-child {
+        header > *:first-child,
+        header > *:last-child {
             margin: 0;
+        }
+    }
+
+    @media screen and (width<=850px) {
+        h1 {
+            font-size: calc(1.5 * var(--spacing-medium));
+            line-height: calc(2.25 * var(--spacing-medium));
+        }
+
+        svg {
+            width: calc(1.5 * var(--spacing-medium));
+            height: calc(1.5 * var(--spacing-medium));
         }
     }
 </style>

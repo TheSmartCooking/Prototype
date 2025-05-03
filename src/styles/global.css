@@ -2,6 +2,15 @@
     color-scheme: light dark;
 
     /*
+    Define color variables for the light and dark themes.
+    Use these to maintain a consistent color palette throughout the UI.
+     */
+    --color-primary: light-dark(#527f59, #2b422f);
+    --color-secondary: light-dark(#66af71, #3f8549);
+    --color-error: red;
+    --color-success: green;
+
+    /*
     Define spacing sizes for margins, paddings, and gaps.
     Use these to ensure consistent spacing throughout the UI.
      */
@@ -16,6 +25,18 @@
     --border-radius-small: 8px;
     --border-radius-medium: 16px;
     --border-radius-large: 32px;
+
+    /*
+    Define a polaroid informations.
+    Use these to create a consistent look and feel for the recipe cards.
+     */
+    --polaroid-color: light-dark(#e9e9e9, #161616);
+    --polaroid-height: 107mm;
+    --polaroid-photo-size: 79mm;
+    --polaroid-width: 88mm;
+    --polaroid-margin-top: calc(
+        (var(--polaroid-width) - var(--polaroid-photo-size)) / 2
+    );
 }
 
 * {
@@ -27,8 +48,14 @@
     user-select: none;
 }
 
+a {
+    text-decoration: none;
+    color: var(--color-secondary);
+}
+
 h1 {
     font-size: var(--spacing-large);
+    line-height: var(--spacing-large);
 }
 
 svg {

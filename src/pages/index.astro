@@ -1,6 +1,44 @@
 ---
-import Main from '/src/layouts/Main.astro';
+import Main from '../layouts/Main.astro'
+import RecipeCard from '../components/RecipeCard.astro'
+import recipes from '../assets/recipes.json'
 ---
 
 <Main title="Home">
+    <section id="recipes-list">
+        {
+            recipes.map((recipe) => (
+                <RecipeCard
+                    author_id={recipe.author_id}
+                    author_name={recipe.author_name}
+                    cook_time={recipe.cook_time}
+                    details={recipe.details}
+                    difficulty_level={recipe.difficulty_level}
+                    estimated_cost={recipe.estimated_cost}
+                    modification_date={recipe.modification_date}
+                    number_of_reviews={recipe.number_of_reviews}
+                    nutritional_information={recipe.nutritional_information}
+                    picture_id={recipe.picture_id}
+                    preparation={recipe.preparation}
+                    preparation_time={recipe.preparation_time}
+                    publication_date={recipe.publication_date}
+                    recipe_id={recipe.recipe_id}
+                    recipe_source={recipe.recipe_source}
+                    recipe_status={recipe.recipe_status}
+                    servings={recipe.servings}
+                    title={recipe.title}
+                    video_url={recipe.video_url}
+                />
+            ))
+        }
+    </section>
+
+    <style>
+        #recipes-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-medium);
+            justify-content: center;
+        }
+    </style>
 </Main>

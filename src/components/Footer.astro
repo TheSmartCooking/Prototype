@@ -1,17 +1,39 @@
 ---
-import '/src/styles/global.css';
-import Icon from "/src/components/Icon.astro";
+import '../styles/global.css'
+import Icon from '../components/Icon.astro'
 
-import { SITE_NAME } from '/src/config.js';
+import { SITE_NAME } from '../config.js'
 
-const baseYear = 2024;
-const currentYear = new Date().getFullYear();
-const yearString = currentYear === baseYear ? baseYear.toString() : `${baseYear}-${currentYear}`;
+const baseYear = 2024
+const currentYear = new Date().getFullYear()
+const yearString =
+    currentYear === baseYear
+        ? baseYear.toString()
+        : `${baseYear}-${currentYear}`
 ---
 
 <footer>
-    <span>{ SITE_NAME } &copy; {yearString}</span>
-    <span>Licensed under the MIT License</span>
+    <div>
+        <span>{SITE_NAME} &copy; {yearString}</span>
+        <span>Licensed under the MIT License</span>
+    </div>
+    <ul>
+        <li title="GitHub">
+            <a
+                href="https://github.com/TheSmartCooking"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                <Icon name="brand-github" />
+            </a>
+        </li>
+        <li title="Contact Us">
+            <a href="contact.html"><Icon name="mail-question" /></a>
+        </li>
+        <li title="Privacy Policy">
+            <a href="privacy.html"><Icon name="file-text-shield" /></a>
+        </li>
+    </ul>
 </footer>
 
 <style>
@@ -19,11 +41,25 @@ const yearString = currentYear === baseYear ? baseYear.toString() : `${baseYear}
         align-self: center;
         display: flex;
         gap: var(--spacing-small);
+        flex-direction: column;
+    }
+
+    footer > div {
+        align-self: center;
+        display: flex;
+        gap: var(--spacing-small);
         text-align: center;
     }
 
+    ul {
+        display: flex;
+        gap: var(--spacing-medium);
+        list-style: none;
+        justify-content: center;
+    }
+
     @media screen and (width<=850px) {
-        footer {
+        footer > div {
             flex-direction: column;
             font-size: 1rem;
             gap: 0;
