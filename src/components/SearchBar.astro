@@ -14,23 +14,24 @@ const { placeholder } = Astro.props
 
 <style>
     input {
-        font-size: 1.5rem;
         background: none;
         border: none;
         border-bottom: 2px solid var(--color-primary);
-        min-width: 5rem;
-        outline: none;
-    }
-
-    input:focus {
-        border-color: var(--color-secondary);
         flex: 1;
+        font-size: 1.5rem;
+        outline: none;
     }
 
     .search-bar {
         display: flex;
         flex: 1;
         background: none;
+    }
+
+    /* Pseudo classes */
+
+    input:focus {
+        border-color: var(--color-secondary);
     }
 </style>
 
