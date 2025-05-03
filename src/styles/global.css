@@ -5,8 +5,8 @@
     Define color variables for the light and dark themes.
     Use these to maintain a consistent color palette throughout the UI.
      */
-    --color-primary: light-dark(#527f59, #2b422f);
-    --color-secondary: light-dark(#66af71, #3f8549);
+    --color-primary: light-dark(#66af71, #2b422f);
+    --color-secondary: light-dark(#527f59, #3f8549);
     --color-error: red;
     --color-success: green;
 
