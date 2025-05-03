@@ -6,7 +6,7 @@ import SearchBar from '../components/SearchBar.astro'
 import { SITE_NAME } from '../config.js'
 ---
 
-<header>
+<header class="show">
     <a href="index.html" title="Home">
         <Icon name="home" />
         <h1>{SITE_NAME}</h1>
@@ -30,8 +30,20 @@ import { SITE_NAME } from '../config.js'
         background-color: var(--color-primary);
         display: flex;
         justify-content: space-between;
+        position: fixed;
         gap: var(--spacing-medium);
+        transition: transform 0.5s ease-in-out;
+        white-space: nowrap;
         width: 100%;
+        z-index: 1;
+    }
+
+    header.hide {
+        transform: translateY(-100%);
+    }
+
+    header.show {
+        transform: translateY(0);
     }
 
     header > a {
@@ -73,3 +85,18 @@ import { SITE_NAME } from '../config.js'
         }
     }
 </style>
+
+<script type="module" is:inline>
+    const header = document.querySelector('header')
+    let lastScroll = 0
+
+    window.addEventListener('scroll', () => {
+        const current = window.scrollY
+        const scrollingDown = current > lastScroll
+
+        header.classList.toggle('hide', scrollingDown && current > 0)
+        header.classList.toggle('show', !scrollingDown || current <= 0)
+
+        lastScroll = Math.max(current, 0)
+    })
+</script>
