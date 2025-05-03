@@ -1,5 +1,223 @@
 ---
+import '../styles/global.css'
 import Main from '../layouts/Main.astro'
+import Icon from '../components/Icon.astro'
 ---
 
-<Main title="Authentication" />
+<Main title="Authentication">
+    <div id="authentication">
+        <section id="login">
+            <h2>Login</h2>
+            <form action="#">
+                <div class="form-field">
+                    <input
+                        type="email"
+                        id="login-email"
+                        name="login-email"
+                        required
+                    />
+                    <label for="login-email">E-mail</label>
+                </div>
+
+                <div class="form-field">
+                    <input
+                        type="password"
+                        id="login-password"
+                        name="login-password"
+                        required
+                    />
+                    <label for="login-password">Password</label>
+                    <Icon name="eye" />
+                    <Icon name="eye-off" />
+                </div>
+
+                <button type="submit">Login</button>
+            </form>
+
+            <a href="" id="register-link">
+                Don't have an account? <span class="flip-link">Register</span>
+            </a>
+        </section>
+
+        <section id="register" style="display: none;">
+            <h2>Register</h2>
+            <form action="#">
+                <div class="form-field">
+                    <input
+                        type="text"
+                        id="register-username"
+                        name="register-username"
+                        required
+                    />
+                    <label for="register-username">Username</label>
+                </div>
+
+                <div class="form-field">
+                    <input
+                        type="email"
+                        id="register-email"
+                        name="register-email"
+                        required
+                    />
+                    <label for="register-email">E-mail</label>
+                </div>
+
+                <div class="form-field">
+                    <input
+                        type="password"
+                        id="register-password"
+                        name="register-password"
+                        required
+                    />
+                    <label for="register-password">Password</label>
+                </div>
+
+                <div class="form-field">
+                    <input
+                        type="password"
+                        id="register-password-confirm"
+                        name="register-password-confirm"
+                        required
+                    />
+                    <label for="register-password-confirm"
+                        >Confirm Password</label
+                    >
+                </div>
+
+                <button type="submit">Register</button>
+            </form>
+
+            <a href="" id="login-link">
+                Already have an account? <span class="flip-link">Login</span>
+            </a>
+        </section>
+    </div>
+</Main>
+
+<style>
+    button[type='submit'] {
+        color: white;
+        cursor: pointer;
+        background-color: var(--color-secondary);
+        border: none;
+        border-radius: var(--border-radius-large);
+        font-size: 1rem;
+        padding: 1rem 2rem;
+    }
+
+    form {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-medium);
+        height: 100%;
+        justify-content: center;
+        width: 100%;
+    }
+
+    section {
+        background-color: light-dark(rgb(0 0 0 / 0.2), rgb(255 255 255 / 0.1));
+        border-radius: var(--border-radius-large);
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-medium);
+        padding: var(--spacing-medium);
+        width: clamp(320px, 100%, 500px);
+    }
+
+    .flip-link {
+        font-weight: bold;
+    }
+
+    .form-field {
+        position: relative;
+        width: 100%;
+    }
+
+    .form-field input {
+        width: 100%;
+        padding: 1rem 0.75rem 0.25rem;
+        font-size: 1rem;
+        background: transparent;
+        border: none;
+        border-bottom: 2px solid #888;
+        color: white;
+        outline: none;
+    }
+
+    .form-field label {
+        position: absolute;
+        top: 1rem;
+        left: 0.75rem;
+        color: #888;
+        font-size: 1rem;
+        pointer-events: none;
+        transition: 0.2s ease all;
+    }
+
+    .form-field input:focus + label,
+    .form-field input.filled + label {
+        top: -0.5rem;
+        left: 0.5rem;
+        font-size: 0.75rem;
+        color: var(--color-secondary);
+    }
+
+    .form-field input:focus {
+        border-bottom-color: var(--color-secondary);
+    }
+
+    #authentication {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        height: 100%;
+        width: 100%;
+    }
+
+    /* Pseudo-classes */
+
+    button[type='submit']:hover {
+        background-color: var(--color-primary);
+    }
+
+    @media screen and (width<=500px) {
+        section {
+            border-radius: 0;
+        }
+    }
+</style>
+
+<script type="module" is:inline>
+    const loginSection = document.getElementById('login')
+    const registerSection = document.getElementById('register')
+    const loginLink = document.getElementById('register-link')
+    const registerLink = document.getElementById('login-link')
+
+    loginLink.addEventListener('click', (e) => {
+        e.preventDefault()
+        loginSection.style.display = 'none'
+        registerSection.style.display = 'flex'
+    })
+
+    registerLink.addEventListener('click', (e) => {
+        e.preventDefault()
+        registerSection.style.display = 'none'
+        loginSection.style.display = 'flex'
+    })
+
+    document.querySelectorAll('.form-field input').forEach((input) => {
+        const updateFilled = () => {
+            if (input.value.trim() !== '') {
+                input.classList.add('filled')
+            } else {
+                input.classList.remove('filled')
+            }
+        }
+
+        input.addEventListener('input', updateFilled)
+        input.addEventListener('blur', updateFilled)
+
+        updateFilled()
+    })
+</script>
