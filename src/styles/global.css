@@ -54,11 +54,10 @@ a {
 }
 
 h1 {
-    font-size: var(--spacing-large);
-    line-height: var(--spacing-large);
+    font-size: calc(1.5 * var(--spacing-medium));
 }
 
 svg {
-    width: var(--spacing-large);
-    height: var(--spacing-large);
+    width: calc(1.5 * var(--spacing-medium));
+    height: calc(1.5 * var(--spacing-medium));
 }
