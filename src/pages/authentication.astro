@@ -1,7 +1,8 @@
 ---
 import '../styles/global.css'
 import Main from '../layouts/Main.astro'
-import Icon from '../components/Icon.astro'
+import IconShowPassword from '../assets/icon/eye.svg'
+import IconHidePassword from '../assets/icon/eye-off.svg'
 ---
 
 <Main title="Authentication">
@@ -29,12 +30,8 @@ import Icon from '../components/Icon.astro'
                         />
                         <label for="login-password">Password</label>
                         <div class="icons">
-                            <Icon name="eye" id="show-password" />
-                            <Icon
-                                name="eye-off"
-                                id="hide-password"
-                                style="display: none;"
-                            />
+                            <IconShowPassword id="show-password" />
+                            <IconHidePassword id="hide-password" />
                         </div>
                     </div>
                 </div>
@@ -188,6 +185,10 @@ import Icon from '../components/Icon.astro'
         justify-content: center;
         height: 100%;
         width: 100%;
+    }
+
+    #hide-password {
+        display: none;
     }
 
     /* Pseudo-classes */

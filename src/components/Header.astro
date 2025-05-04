@@ -1,7 +1,8 @@
 ---
 import '../styles/global.css'
-import Icon from '../components/Icon.astro'
 import SearchBar from '../components/SearchBar.astro'
+import IconHome from '../assets/icon/home.svg'
+import IconUser from '../assets/icon/user-circle.svg'
 
 import { SITE_NAME } from '../config.js'
 const { canSearch = false } = Astro.props || {}
@@ -9,14 +10,14 @@ const { canSearch = false } = Astro.props || {}
 
 <header class="show">
     <a href="index.html" title="Home">
-        <Icon name="home" />
+        <IconHome />
         <h1>{SITE_NAME}</h1>
     </a>
     {canSearch && <SearchBar placeholder="Search for recipes..." />}
     <nav>
         <ul>
             <li title="Account">
-                <a href="authentication.html"><Icon name="user-circle" /></a>
+                <a href="authentication.html"><IconUser /></a>
             </li>
         </ul>
     </nav>

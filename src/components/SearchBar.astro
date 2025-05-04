@@ -1,13 +1,13 @@
 ---
 import '../styles/global.css'
-import Icon from '../components/Icon.astro'
+import IconSearch from '../assets/icon/search.svg'
 
 const { placeholder } = Astro.props
 ---
 
 <Fragment>
     <div class="search-bar">
-        <Icon name="search" />
+        <IconSearch />
         <input type="text" placeholder={placeholder} />
     </div>
 </Fragment>
