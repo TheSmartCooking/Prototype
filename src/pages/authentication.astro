@@ -29,7 +29,7 @@ import IconHidePassword from '../assets/icon/eye-off.svg'
                             required
                         />
                         <label for="login-password">Password</label>
-                        <div class="icons">
+                        <div class="icons" title="Toggle password visibility">
                             <IconShowPassword id="show-password" />
                             <IconHidePassword id="hide-password" />
                         </div>
@@ -189,6 +189,10 @@ import IconHidePassword from '../assets/icon/eye-off.svg'
 
     #hide-password {
         display: none;
+    }
+
+    #show-password {
+        color: #888;
     }
 
     /* Pseudo-classes */
