@@ -1,5 +1,6 @@
 // @ts-check
 import { defineConfig } from 'astro/config'
+import svgLoader from 'vite-svg-loader'
 
 // https://astro.build/config
 export default defineConfig({
@@ -10,6 +11,7 @@ export default defineConfig({
     },
     output: 'static',
     vite: {
+        plugins: [svgLoader()],
         server: {
             watch: {
                 usePolling: true,
