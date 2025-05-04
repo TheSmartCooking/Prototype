@@ -20,17 +20,24 @@ import Icon from '../components/Icon.astro'
                 </div>
 
                 <div class="form-field">
-                    <input
-                        type="password"
-                        id="login-password"
-                        name="login-password"
-                        required
-                    />
-                    <label for="login-password">Password</label>
-                    <Icon name="eye" />
-                    <Icon name="eye-off" />
+                    <div class="input-with-icon">
+                        <input
+                            type="password"
+                            id="login-password"
+                            name="login-password"
+                            required
+                        />
+                        <label for="login-password">Password</label>
+                        <div class="icons">
+                            <Icon name="eye" id="show-password" />
+                            <Icon
+                                name="eye-off"
+                                id="hide-password"
+                                style="display: none;"
+                            />
+                        </div>
+                    </div>
                 </div>
-
                 <button type="submit">Login</button>
             </form>
 
@@ -167,6 +174,14 @@ import Icon from '../components/Icon.astro'
         border-bottom-color: var(--color-secondary);
     }
 
+    .icons {
+        cursor: pointer;
+    }
+
+    .input-with-icon {
+        display: flex;
+    }
+
     #authentication {
         align-items: center;
         display: flex;
@@ -193,18 +208,9 @@ import Icon from '../components/Icon.astro'
     const registerSection = document.getElementById('register')
     const loginLink = document.getElementById('register-link')
     const registerLink = document.getElementById('login-link')
-
-    loginLink.addEventListener('click', (e) => {
-        e.preventDefault()
-        loginSection.style.display = 'none'
-        registerSection.style.display = 'flex'
-    })
-
-    registerLink.addEventListener('click', (e) => {
-        e.preventDefault()
-        registerSection.style.display = 'none'
-        loginSection.style.display = 'flex'
-    })
+    const passwordInput = document.getElementById('login-password')
+    const showIcon = document.getElementById('show-password')
+    const hideIcon = document.getElementById('hide-password')
 
     document.querySelectorAll('.form-field input').forEach((input) => {
         const updateFilled = () => {
@@ -220,4 +226,26 @@ import Icon from '../components/Icon.astro'
 
         updateFilled()
     })
+
+    function togglePasswordVisibility() {
+        const isHidden = passwordInput.type === 'password'
+        passwordInput.type = isHidden ? 'text' : 'password'
+        showIcon.style.display = isHidden ? 'none' : 'inline'
+        hideIcon.style.display = isHidden ? 'inline' : 'none'
+    }
+
+    loginLink.addEventListener('click', (e) => {
+        e.preventDefault()
+        loginSection.style.display = 'none'
+        registerSection.style.display = 'flex'
+    })
+
+    registerLink.addEventListener('click', (e) => {
+        e.preventDefault()
+        registerSection.style.display = 'none'
+        loginSection.style.display = 'flex'
+    })
+
+    showIcon.addEventListener('click', togglePasswordVisibility)
+    hideIcon.addEventListener('click', togglePasswordVisibility)
 </script>

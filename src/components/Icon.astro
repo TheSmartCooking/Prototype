@@ -1,10 +1,20 @@
 ---
 export interface Props {
     name: string
+    class?: string
+    id?: string
+    onClick?: string
+    style?: string
 }
 
-const { name } = Astro.props as Props
+const { name, class: className = '', id, onClick, style } = Astro.props
 const { default: innerHTML } = await import(`../assets/icon/${name}.svg?raw`)
 ---
 
-<Fragment set:html={innerHTML} />
+<span
+    class={className}
+    id={id}
+    onclick={onClick}
+    set:html={innerHTML}
+    style={style}
+/>
