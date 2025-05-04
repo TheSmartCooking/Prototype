@@ -1,0 +1,67 @@
+---
+import '../styles/global.css'
+import IconSearch from '../assets/icon/search.svg'
+
+const { placeholder } = Astro.props
+---
+
+<Fragment>
+    <div class="search-bar">
+        <IconSearch />
+        <input type="text" placeholder={placeholder} />
+    </div>
+</Fragment>
+
+<style>
+    input {
+        background: none;
+        border: none;
+        border-bottom: 2px solid var(--color-primary);
+        flex: 1;
+        font-size: 1.5rem;
+        outline: none;
+    }
+
+    .search-bar {
+        display: flex;
+        background: none;
+        width: 100%;
+    }
+
+    /* Pseudo classes */
+
+    input:focus {
+        border-color: var(--color-secondary);
+    }
+</style>
+
+<script type="module" is:inline>
+    let debounceTimeout
+
+    function handleSearch(input) {
+        const query = input.value.trim().toLowerCase()
+        const products = document.querySelectorAll('.recipe-polaroid')
+
+        products.forEach((product) => {
+            const name =
+                product.querySelector('h1')?.textContent.toLowerCase() || ''
+            product.style.display =
+                query && name.includes(query) ? 'flex' : query ? 'none' : 'flex'
+        })
+    }
+
+    function initSearchBar() {
+        const input = document.querySelector('.search-bar input')
+
+        input.addEventListener('input', () => {
+            clearTimeout(debounceTimeout)
+            debounceTimeout = setTimeout(() => handleSearch(input), 500)
+        })
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initSearchBar)
+    } else {
+        initSearchBar()
+    }
+</script>

@@ -1,6 +1,8 @@
 ---
 import '../styles/global.css'
-import Icon from '../components/Icon.astro'
+import IconGitHub from '../assets/icon/brand-github.svg'
+import IconContact from '../assets/icon/mail-question.svg'
+import IconPrivacy from '../assets/icon/file-text-shield.svg'
 
 import { SITE_NAME } from '../config.js'
 
@@ -24,14 +26,14 @@ const yearString =
                 target="_blank"
                 rel="noopener noreferrer"
             >
-                <Icon name="brand-github" />
+                <IconGitHub />
             </a>
         </li>
         <li title="Contact Us">
-            <a href="contact.html"><Icon name="mail-question" /></a>
+            <a href="contact.html"><IconContact /></a>
         </li>
         <li title="Privacy Policy">
-            <a href="privacy.html"><Icon name="file-text-shield" /></a>
+            <a href="privacy.html"><IconPrivacy /></a>
         </li>
     </ul>
 </footer>

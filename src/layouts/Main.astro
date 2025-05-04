@@ -6,6 +6,7 @@ import Footer from '../components/Footer.astro'
 import { SITE_NAME } from '../config.js'
 
 const { title } = Astro.props
+const { canSearch = false } = Astro.props || {}
 ---
 
 <!doctype html>
@@ -22,8 +23,8 @@ const { title } = Astro.props
     </head>
     <body>
         <img id="background" src="background.svg" fetchpriority="high" />
-        <Header />
-        <slot />
+        <Header canSearch={canSearch} />
+        <main><slot /></main>
         <Footer />
     </body>
 </html>
@@ -51,6 +52,12 @@ const { title } = Astro.props
         background-size: 10px 10px;
     }
 
+    main {
+        margin-top: calc(var(--spacing-large) + 2rem);
+        flex: 1;
+        width: 100%;
+    }
+
     #background {
         position: fixed;
         top: 0;
@@ -65,6 +72,12 @@ const { title } = Astro.props
     @media (prefers-color-scheme: light) {
         #background {
             opacity: 0.4;
+        }
+    }
+
+    @media screen and (width <=850px) {
+        main {
+            margin-top: calc(2 * var(--spacing-large) + 2rem);
         }
     }
 </style>

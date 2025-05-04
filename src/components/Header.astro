@@ -1,30 +1,51 @@
 ---
 import '../styles/global.css'
-import Icon from '../components/Icon.astro'
+import SearchBar from '../components/SearchBar.astro'
+import IconHome from '../assets/icon/home.svg'
+import IconUser from '../assets/icon/user-circle.svg'
 
 import { SITE_NAME } from '../config.js'
+const { canSearch = false } = Astro.props || {}
 ---
 
-<header>
+<header class="show">
     <a href="index.html" title="Home">
-        <Icon name="home" />
+        <IconHome />
         <h1>{SITE_NAME}</h1>
     </a>
+    {canSearch && <SearchBar placeholder="Search for recipes..." />}
     <nav>
         <ul>
             <li title="Account">
-                <a href="authentication.html"><Icon name="user-circle" /></a>
+                <a href="authentication.html"><IconUser /></a>
             </li>
         </ul>
     </nav>
 </header>
 
 <style>
+    h1 {
+        text-wrap: nowrap;
+    }
+
     header {
         background-color: var(--color-primary);
         display: flex;
         justify-content: space-between;
+        position: fixed;
+        gap: var(--spacing-medium);
+        transition: transform 0.5s ease-in-out;
+        white-space: nowrap;
         width: 100%;
+        z-index: 1;
+    }
+
+    header.hide {
+        transform: translateY(-100%);
+    }
+
+    header.show {
+        transform: translateY(0);
     }
 
     header > a {
@@ -44,7 +65,7 @@ import { SITE_NAME } from '../config.js'
         margin: 0 var(--spacing-medium);
     }
 
-    @media screen and (width<=850px) {
+    @media screen and (width<=1000px) {
         header {
             align-items: center;
             flex-direction: column;
@@ -55,12 +76,9 @@ import { SITE_NAME } from '../config.js'
         header > *:last-child {
             margin: 0;
         }
-    }
 
-    @media screen and (width<=850px) {
         h1 {
-            font-size: calc(1.5 * var(--spacing-medium));
-            line-height: calc(2.25 * var(--spacing-medium));
+            font-size: 1.75rem;
         }
 
         svg {
@@ -69,3 +87,18 @@ import { SITE_NAME } from '../config.js'
         }
     }
 </style>
+
+<script type="module" is:inline>
+    const header = document.querySelector('header')
+    let lastScroll = 0
+
+    window.addEventListener('scroll', () => {
+        const current = window.scrollY
+        const scrollingDown = current > lastScroll
+
+        header.classList.toggle('hide', scrollingDown && current > 0)
+        header.classList.toggle('show', !scrollingDown || current <= 0)
+
+        lastScroll = Math.max(current, 0)
+    })
+</script>

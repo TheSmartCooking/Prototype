@@ -15,18 +15,19 @@
 
     <style>
         :root {
-            --gradient-a-start: #3245ff;
-            --gradient-a-end: #bc52ee;
-            --gradient-b-start: #d83333;
-            --gradient-b-end: #f041ff;
+            --gradient-a-start: #a8e063;   /* lettuce green */
+            --gradient-a-end: #f8ffae;     /* light lemon dressing */
+            --gradient-b-start: #ff4e50;   /* ripe tomato red */
+            --gradient-b-end: #c6ffdd;     /* cucumber green / mint */
         }
 
-        @media (prefers-color-scheme: light) {
+
+        @media (prefers-color-scheme: dark) {
             :root {
-                --gradient-a-start: #00c9ff;
-                --gradient-a-end: #92fe9d;
-                --gradient-b-start: #ff6a00;
-                --gradient-b-end: #ee0979;
+                --gradient-a-start: #5c2a9d;   /* plum or wine */
+                --gradient-a-end: #2f1b0c;     /* dark roast / chocolate */
+                --gradient-b-start: #8b1e3f;   /* red wine / beetroot */
+                --gradient-b-end: #ff6f61;     /* rosy candle glow / seared salmon */
             }
         }
     </style>

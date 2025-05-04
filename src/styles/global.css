@@ -5,8 +5,8 @@
     Define color variables for the light and dark themes.
     Use these to maintain a consistent color palette throughout the UI.
      */
-    --color-primary: light-dark(#527f59, #2b422f);
-    --color-secondary: light-dark(#66af71, #3f8549);
+    --color-primary: light-dark(#66af71, #2b422f);
+    --color-secondary: light-dark(#527f59, #3f8549);
     --color-error: red;
     --color-success: green;
 
@@ -32,8 +32,8 @@
      */
     --polaroid-color: light-dark(#e9e9e9, #161616);
     --polaroid-height: 107mm;
-    --polaroid-photo-size: 79mm;
     --polaroid-width: 88mm;
+    --polaroid-photo-size: calc(var(--polaroid-width) - 9mm);
     --polaroid-margin-top: calc(
         (var(--polaroid-width) - var(--polaroid-photo-size)) / 2
     );
@@ -54,11 +54,16 @@ a {
 }
 
 h1 {
-    font-size: var(--spacing-large);
-    line-height: var(--spacing-large);
+    font-size: calc(1.5 * var(--spacing-medium));
 }
 
 svg {
-    width: var(--spacing-large);
-    height: var(--spacing-large);
+    width: calc(1.5 * var(--spacing-medium));
+    height: 100%;
+}
+
+@media screen and (width <=320px) {
+    :root {
+        --polaroid-width: 100svw;
+    }
 }
