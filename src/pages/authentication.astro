@@ -30,8 +30,8 @@ import IconHidePassword from '../assets/icon/eye-off.svg'
                         />
                         <label for="login-password">Password</label>
                         <div class="icons" title="Toggle password visibility">
-                            <IconShowPassword id="show-password" />
-                            <IconHidePassword id="hide-password" />
+                            <IconShowPassword class="show-password" />
+                            <IconHidePassword class="hide-password" />
                         </div>
                     </div>
                 </div>
@@ -67,25 +67,35 @@ import IconHidePassword from '../assets/icon/eye-off.svg'
                 </div>
 
                 <div class="form-field">
-                    <input
-                        type="password"
-                        id="register-password"
-                        name="register-password"
-                        required
-                    />
-                    <label for="register-password">Password</label>
+                    <div class="input-with-icon">
+                        <input
+                            type="password"
+                            id="register-password"
+                            name="register-password"
+                            required
+                        />
+                        <label for="register-password">Password</label>
+                        <div class="icons" title="Toggle password visibility">
+                            <IconShowPassword class="show-password" />
+                            <IconHidePassword class="hide-password" />
+                        </div>
+                    </div>
                 </div>
 
                 <div class="form-field">
-                    <input
-                        type="password"
-                        id="register-password-confirm"
-                        name="register-password-confirm"
-                        required
-                    />
-                    <label for="register-password-confirm"
-                        >Confirm Password</label
-                    >
+                    <div class="input-with-icon">
+                        <input
+                            type="password"
+                            id="register-password-password"
+                            name="register-password-password"
+                            required
+                        />
+                        <label for="register-password-password">Password</label>
+                        <div class="icons" title="Toggle password visibility">
+                            <IconShowPassword class="show-password" />
+                            <IconHidePassword class="hide-password" />
+                        </div>
+                    </div>
                 </div>
 
                 <button type="submit">Register</button>
@@ -171,6 +181,14 @@ import IconHidePassword from '../assets/icon/eye-off.svg'
         border-bottom-color: var(--color-secondary);
     }
 
+    .hide-password {
+        display: none;
+    }
+
+    .show-password {
+        color: #888;
+    }
+
     .icons {
         cursor: pointer;
     }
@@ -185,14 +203,6 @@ import IconHidePassword from '../assets/icon/eye-off.svg'
         justify-content: center;
         height: 100%;
         width: 100%;
-    }
-
-    #hide-password {
-        display: none;
-    }
-
-    #show-password {
-        color: #888;
     }
 
     /* Pseudo-classes */
@@ -213,17 +223,11 @@ import IconHidePassword from '../assets/icon/eye-off.svg'
     const registerSection = document.getElementById('register')
     const loginLink = document.getElementById('register-link')
     const registerLink = document.getElementById('login-link')
-    const passwordInput = document.getElementById('login-password')
-    const showIcon = document.getElementById('show-password')
-    const hideIcon = document.getElementById('hide-password')
 
+    // Maintain label position on filled inputs
     document.querySelectorAll('.form-field input').forEach((input) => {
         const updateFilled = () => {
-            if (input.value.trim() !== '') {
-                input.classList.add('filled')
-            } else {
-                input.classList.remove('filled')
-            }
+            input.classList.toggle('filled', input.value.trim() !== '')
         }
 
         input.addEventListener('input', updateFilled)
@@ -232,13 +236,7 @@ import IconHidePassword from '../assets/icon/eye-off.svg'
         updateFilled()
     })
 
-    function togglePasswordVisibility() {
-        const isHidden = passwordInput.type === 'password'
-        passwordInput.type = isHidden ? 'text' : 'password'
-        showIcon.style.display = isHidden ? 'none' : 'inline'
-        hideIcon.style.display = isHidden ? 'inline' : 'none'
-    }
-
+    // Flip between login and register forms
     loginLink.addEventListener('click', (e) => {
         e.preventDefault()
         loginSection.style.display = 'none'
@@ -251,6 +249,30 @@ import IconHidePassword from '../assets/icon/eye-off.svg'
         loginSection.style.display = 'flex'
     })
 
-    showIcon.addEventListener('click', togglePasswordVisibility)
-    hideIcon.addEventListener('click', togglePasswordVisibility)
+    // Toggle visibility for password fields
+    document.querySelectorAll('.icons').forEach((iconContainer) => {
+        const section = iconContainer.closest('section')
+        const passwordInputs = section.querySelectorAll(
+            'input[type="password"], input[type="text"]'
+        )
+        const showIcons = section.querySelectorAll('.show-password')
+        const hideIcons = section.querySelectorAll('.hide-password')
+
+        const toggle = () => {
+            const isHidden = [...passwordInputs].some(
+                (input) => input.type === 'password'
+            )
+            passwordInputs.forEach((input) => {
+                input.type = isHidden ? 'text' : 'password'
+            })
+            showIcons.forEach((icon) => {
+                icon.style.display = isHidden ? 'none' : 'inline'
+            })
+            hideIcons.forEach((icon) => {
+                icon.style.display = isHidden ? 'inline' : 'none'
+            })
+        }
+
+        iconContainer.addEventListener('click', toggle)
+    })
 </script>
