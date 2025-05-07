@@ -36,6 +36,7 @@ const { placeholder } = Astro.props
 </style>
 
 <script type="module" is:inline>
+    const input = document.querySelector('.search-bar input')
     let debounceTimeout
 
     function handleSearch(input) {
@@ -50,18 +51,8 @@ const { placeholder } = Astro.props
         })
     }
 
-    function initSearchBar() {
-        const input = document.querySelector('.search-bar input')
-
-        input.addEventListener('input', () => {
-            clearTimeout(debounceTimeout)
-            debounceTimeout = setTimeout(() => handleSearch(input), 500)
-        })
-    }
-
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initSearchBar)
-    } else {
-        initSearchBar()
-    }
+    input.addEventListener('input', () => {
+        clearTimeout(debounceTimeout)
+        debounceTimeout = setTimeout(() => handleSearch(input), 500)
+    })
 </script>
