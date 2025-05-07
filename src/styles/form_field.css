@@ -1,0 +1,37 @@
+.form-field {
+    position: relative;
+    width: 100%;
+}
+
+.form-field input {
+    width: 100%;
+    padding: 1rem 0.75rem 0.25rem;
+    font-size: 1rem;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #888;
+    color: white;
+    outline: none;
+}
+
+.form-field label {
+    position: absolute;
+    top: 1rem;
+    left: 0.75rem;
+    color: #888;
+    font-size: 1rem;
+    pointer-events: none;
+    transition: 0.2s ease all;
+}
+
+.form-field input:focus + label,
+.form-field input.filled + label {
+    top: -0.5rem;
+    left: 0.5rem;
+    font-size: 0.75rem;
+    color: var(--color-secondary);
+}
+
+.form-field input:focus {
+    border-bottom-color: var(--color-secondary);
+}

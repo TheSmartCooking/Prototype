@@ -1,0 +1,12 @@
+---
+import '../styles/form_field.css'
+
+const { id, type, name, label } = Astro.props
+---
+
+<Fragment>
+    <div class="form-field">
+        <input type={type} id={id} name={name} required />
+        <label for={id}>{label}</label>
+    </div>
+</Fragment>
