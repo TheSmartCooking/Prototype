@@ -14,9 +14,12 @@
         }
     },
     "forwardPorts": [4321],
+    "otherPortsAttributes": {
+        "onAutoForward": "ignore"
+    },
     "portsAttributes": {
         "4321": {
-            "label": "Dev web server",
+            "label": "Dev live server",
             "onAutoForward": "notify"
         }
     },
