@@ -13,6 +13,16 @@
             ]
         }
     },
-    "postStartCommand": "npm update && npm install && npx prettier --write .",
+    "forwardPorts": [4321],
+    "portsAttributes": {
+        "4321": {
+            "label": "Dev web server",
+            "onAutoForward": "notify"
+        }
+    },
+    "postStartCommand": {
+        "package": "npm update && npm install",
+        "prettier": "npx prettier --write ."
+    },
     "remoteUser": "vscode"
 }
