@@ -10,7 +10,6 @@
     background: transparent;
     border: none;
     border-bottom: 2px solid #888;
-    color: white;
     outline: none;
 }
 
@@ -34,4 +33,28 @@
 
 .form-field input:focus {
     border-bottom-color: var(--color-secondary);
+}
+
+.form-field input.filled:user-invalid {
+    border-bottom-color: var(--color-error);
+}
+
+.form-field input.filled:user-invalid:not(:focus) {
+    background: linear-gradient(
+        to top,
+        rgb(from var(--color-error) r g b / 0.1) 0%,
+        transparent 100%
+    );
+}
+
+.form-field input.filled:user-invalid + label {
+    color: var(--color-error);
+}
+
+.form-field input.filled:user-valid {
+    border-bottom-color: var(--color-success);
+}
+
+.form-field input.filled:user-valid + label {
+    color: var(--color-success);
 }
