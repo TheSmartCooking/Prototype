@@ -6,7 +6,7 @@
             "type": "shell",
             "command": "npm run dev",
             "group": {
-                "kind": "build",
+                "kind": "none",
                 "isDefault": true
             },
             "presentation": {
