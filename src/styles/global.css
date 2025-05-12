@@ -8,7 +8,7 @@
     --color-primary: light-dark(#66af71, #2b422f);
     --color-secondary: light-dark(#527f59, #3f8549);
     --color-error: red;
-    --color-success: green;
+    --color-success: var(--color-secondary);
 
     /*
     Define spacing sizes for margins, paddings, and gaps.
@@ -34,9 +34,7 @@
     --polaroid-height: 107mm;
     --polaroid-width: 88mm;
     --polaroid-photo-size: calc(var(--polaroid-width) - 9mm);
-    --polaroid-margin-top: calc(
-        (var(--polaroid-width) - var(--polaroid-photo-size)) / 2
-    );
+    --polaroid-margin-top: calc((var(--polaroid-width) - var(--polaroid-photo-size)) / 2);
 }
 
 * {

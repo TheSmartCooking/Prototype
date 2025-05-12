@@ -36,6 +36,7 @@ const { placeholder } = Astro.props
 </style>
 
 <script type="module" is:inline>
+    const input = document.querySelector('.search-bar input')
     let debounceTimeout
 
     function handleSearch(input) {
@@ -43,25 +44,13 @@ const { placeholder } = Astro.props
         const products = document.querySelectorAll('.recipe-polaroid')
 
         products.forEach((product) => {
-            const name =
-                product.querySelector('h1')?.textContent.toLowerCase() || ''
-            product.style.display =
-                query && name.includes(query) ? 'flex' : query ? 'none' : 'flex'
+            const name = product.querySelector('h1')?.textContent.toLowerCase() || ''
+            product.style.display = query && name.includes(query) ? 'flex' : query ? 'none' : 'flex'
         })
     }
 
-    function initSearchBar() {
-        const input = document.querySelector('.search-bar input')
-
-        input.addEventListener('input', () => {
-            clearTimeout(debounceTimeout)
-            debounceTimeout = setTimeout(() => handleSearch(input), 500)
-        })
-    }
-
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initSearchBar)
-    } else {
-        initSearchBar()
-    }
+    input.addEventListener('input', () => {
+        clearTimeout(debounceTimeout)
+        debounceTimeout = setTimeout(() => handleSearch(input), 500)
+    })
 </script>

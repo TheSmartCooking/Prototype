@@ -8,10 +8,7 @@ import { SITE_NAME } from '../config.js'
 
 const baseYear = 2024
 const currentYear = new Date().getFullYear()
-const yearString =
-    currentYear === baseYear
-        ? baseYear.toString()
-        : `${baseYear}-${currentYear}`
+const yearString = currentYear === baseYear ? baseYear.toString() : `${baseYear}-${currentYear}`
 ---
 
 <footer>
@@ -21,11 +18,7 @@ const yearString =
     </div>
     <ul>
         <li title="GitHub">
-            <a
-                href="https://github.com/TheSmartCooking"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
+            <a href="https://github.com/TheSmartCooking" target="_blank" rel="noopener noreferrer">
                 <IconGitHub />
             </a>
         </li>

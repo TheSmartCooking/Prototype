@@ -1,14 +1,7 @@
 ---
 import '../styles/global.css'
 
-const {
-    author_name,
-    cook_time,
-    number_of_reviews,
-    picture_id,
-    recipe_status,
-    title,
-} = Astro.props
+const { author_name, cook_time, number_of_reviews, picture_id, recipe_status, title } = Astro.props
 
 function randint(min: number, max: number) {
     return Math.floor(Math.random() * (max - min + 1) + min)
@@ -17,10 +10,7 @@ function randint(min: number, max: number) {
 
 <Fragment>
     <div class="recipe-polaroid">
-        <div
-            class="card-body"
-            style=`background-image: url("recipe/${picture_id}.png");`
-        >
+        <div class="card-body" style=`background-image: url("recipe/${picture_id}.png");`>
             <div class="card-top">
                 <span class="card-text cook-time">⏱️ {cook_time}</span>
                 <span class="card-text recipe-status">{recipe_status}</span>
