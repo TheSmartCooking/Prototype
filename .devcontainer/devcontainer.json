@@ -24,8 +24,8 @@
         }
     },
     "postStartCommand": {
-        "package": "npm update && npm install",
-        "prettier": "npx prettier --write ."
+        "package update": "npm update && npm install",
+        "prettify code": "npx prettier --write ."
     },
     "remoteUser": "vscode"
 }
