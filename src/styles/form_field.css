@@ -33,8 +33,8 @@ button[type='submit'] {
     transition: 0.2s ease all;
 }
 
-.form-field input:focus+label,
-.form-field input.filled+label {
+.form-field input:focus + label,
+.form-field input.filled + label {
     top: -0.5rem;
     left: 0.5rem;
     font-size: 0.75rem;
@@ -50,12 +50,14 @@ button[type='submit'] {
 }
 
 .form-field input.filled:user-invalid:not(:focus) {
-    background: linear-gradient(to top,
-            rgb(from var(--color-error) r g b / 0.1) 0%,
-            transparent 100%);
+    background: linear-gradient(
+        to top,
+        rgb(from var(--color-error) r g b / 0.1) 0%,
+        transparent 100%
+    );
 }
 
-.form-field input.filled:user-invalid+label {
+.form-field input.filled:user-invalid + label {
     color: var(--color-error);
 }
 
@@ -63,7 +65,7 @@ button[type='submit'] {
     border-bottom-color: var(--color-success);
 }
 
-.form-field input.filled:user-valid+label {
+.form-field input.filled:user-valid + label {
     color: var(--color-success);
 }
 
