@@ -1,5 +1,45 @@
 ---
 import Main from '../layouts/Main.astro'
+import FormField from '../components/FormField.astro'
 ---
 
-<Main title="Contact Us" />
+<Main title="Contact Us">
+    <h1>How to Get in Touch</h1>
+    <section id="contact">
+        <h2>Work with Us</h2>
+        <span>
+            <h3>Professional cook?</h3>
+            <button>Let's work together!</button>
+        </span>
+        <span>
+            <h3>Want to contribute to the code?</h3>
+            <button>Reach out on GitHub!</button>
+        </span>
+        <span>
+            <h3>Want to promote your product?</h3>
+            <button>Contact us for sponsorship!</button>
+        </span>
+        <span>
+            <h3>Found a bug?</h3>
+            <button>Report a bug!</button>
+        </span>
+    </section>
+    <section id="social">
+        <h2>Follow Us</h2>
+        <button>Twitter</button>
+        <button>Instagram</button>
+        <button>Facebook</button>
+    </section>
+    <section id="feedback">
+        <h2>Feedback</h2>
+        <h3>Have a suggestion?</h3>
+        <form action="#">
+            <FormField id="name" type="text" name="name" label="Name" />
+            <FormField id="email" type="email" name="email" label="Email" />
+            <FormField id="message" type="textarea" name="message" label="Message" />
+            <button type="submit">Send</button>
+        </form>
+    </section>
+</Main>
+
+<style></style>

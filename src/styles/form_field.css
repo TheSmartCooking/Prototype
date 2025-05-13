@@ -1,3 +1,13 @@
+button[type='submit'] {
+    color: white;
+    cursor: pointer;
+    background-color: var(--color-secondary);
+    border: none;
+    border-radius: var(--border-radius-large);
+    font-size: 1rem;
+    padding: 1rem 2rem;
+}
+
 .form-field {
     position: relative;
     width: 100%;
@@ -23,8 +33,8 @@
     transition: 0.2s ease all;
 }
 
-.form-field input:focus + label,
-.form-field input.filled + label {
+.form-field input:focus+label,
+.form-field input.filled+label {
     top: -0.5rem;
     left: 0.5rem;
     font-size: 0.75rem;
@@ -40,14 +50,12 @@
 }
 
 .form-field input.filled:user-invalid:not(:focus) {
-    background: linear-gradient(
-        to top,
-        rgb(from var(--color-error) r g b / 0.1) 0%,
-        transparent 100%
-    );
+    background: linear-gradient(to top,
+            rgb(from var(--color-error) r g b / 0.1) 0%,
+            transparent 100%);
 }
 
-.form-field input.filled:user-invalid + label {
+.form-field input.filled:user-invalid+label {
     color: var(--color-error);
 }
 
@@ -55,6 +63,12 @@
     border-bottom-color: var(--color-success);
 }
 
-.form-field input.filled:user-valid + label {
+.form-field input.filled:user-valid+label {
     color: var(--color-success);
+}
+
+/* Pseudo-classes */
+
+button[type='submit']:hover {
+    background-color: var(--color-primary);
 }

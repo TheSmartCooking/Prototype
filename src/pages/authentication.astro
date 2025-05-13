@@ -45,16 +45,6 @@ import PasswordRequirements from '../components/PasswordRequirements.astro'
 </Main>
 
 <style>
-    button[type='submit'] {
-        color: white;
-        cursor: pointer;
-        background-color: var(--color-secondary);
-        border: none;
-        border-radius: var(--border-radius-large);
-        font-size: 1rem;
-        padding: 1rem 2rem;
-    }
-
     form {
         align-items: center;
         display: flex;
@@ -88,10 +78,6 @@ import PasswordRequirements from '../components/PasswordRequirements.astro'
     }
 
     /* Pseudo-classes */
-
-    button[type='submit']:hover {
-        background-color: var(--color-primary);
-    }
 
     @media screen and (width<=500px) {
         section {
