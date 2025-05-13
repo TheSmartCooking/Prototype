@@ -65,7 +65,7 @@ h1 {
     font-size: calc(1.5 * var(--spacing-medium));
 }
 
-section {
+section.glassy {
     background-color: light-dark(rgb(0 0 0 / 0.2), rgb(255 255 255 / 0.1));
     border-radius: var(--border-radius-large);
     display: flex;
