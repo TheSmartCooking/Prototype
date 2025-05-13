@@ -1,45 +1,110 @@
 ---
 import Main from '../layouts/Main.astro'
 import FormField from '../components/FormField.astro'
+import IconBlueSky from '../assets/icon/brand-bluesky.svg'
+import IconDiscord from '../assets/icon/brand-discord.svg'
+import IconFacebook from '../assets/icon/brand-facebook.svg'
+import IconGitHub from '../assets/icon/brand-github.svg'
+import IconInstagram from '../assets/icon/brand-instagram.svg'
+import IconLinkedIn from '../assets/icon/brand-linkedin.svg'
+import IconPinterest from '../assets/icon/brand-pinterest.svg'
+import IconReddit from '../assets/icon/brand-reddit.svg'
+import IconTwitterX from '../assets/icon/brand-x.svg'
+import IconYouTube from '../assets/icon/brand-youtube.svg'
 ---
 
 <Main title="Contact Us">
-    <h1>How to Get in Touch</h1>
-    <section id="contact">
-        <h2>Work with Us</h2>
-        <span>
-            <h3>Professional cook?</h3>
-            <button>Let's work together!</button>
-        </span>
-        <span>
-            <h3>Want to contribute to the code?</h3>
-            <button>Reach out on GitHub!</button>
-        </span>
-        <span>
-            <h3>Want to promote your product?</h3>
-            <button>Contact us for sponsorship!</button>
-        </span>
-        <span>
-            <h3>Found a bug?</h3>
-            <button>Report a bug!</button>
-        </span>
-    </section>
-    <section id="social">
-        <h2>Follow Us</h2>
-        <button>Twitter</button>
-        <button>Instagram</button>
-        <button>Facebook</button>
-    </section>
-    <section id="feedback">
-        <h2>Feedback</h2>
-        <h3>Have a suggestion?</h3>
-        <form action="#">
-            <FormField id="name" type="text" name="name" label="Name" />
-            <FormField id="email" type="email" name="email" label="Email" />
-            <FormField id="message" type="textarea" name="message" label="Message" />
-            <button type="submit">Send</button>
-        </form>
-    </section>
+    <div id="contact-us">
+        <h1>How to Get in Touch</h1>
+        <section id="contact">
+            <h2>Work with Us</h2>
+            <div>
+                <span>
+                    <h3>Professional cook?</h3>
+                    <button>Let's work together!</button>
+                </span>
+                <span>
+                    <h3>Want to contribute to the code?</h3>
+                    <button>Reach out on GitHub!</button>
+                </span>
+                <span>
+                    <h3>Want to promote your product?</h3>
+                    <button>Contact us for sponsorship!</button>
+                </span>
+                <span>
+                    <h3>Found a bug?</h3>
+                    <button>Report a bug!</button>
+                </span>
+            </div>
+        </section>
+        <section id="social">
+            <h2>Follow Us</h2>
+            <div>
+                <IconBlueSky />
+                <IconDiscord />
+                <IconFacebook />
+                <IconGitHub />
+                <IconInstagram />
+                <IconLinkedIn />
+                <IconPinterest />
+                <IconReddit />
+                <IconTwitterX />
+                <IconYouTube />
+            </div>
+        </section>
+        <section id="feedback">
+            <h2>Feedback</h2>
+            <h3>Have a suggestion?</h3>
+            <form action="#">
+                <FormField id="name" type="text" name="name" label="Name" />
+                <FormField id="email" type="email" name="email" label="Email" />
+                <FormField id="message" type="textarea" name="message" label="Message" />
+                <button type="submit">Send</button>
+            </form>
+        </section>
+    </div>
 </Main>
 
-<style></style>
+<style>
+    button:not([type='submit']) {
+        margin: 10px;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    h1,
+    h2,
+    h3 {
+        text-align: center;
+    }
+
+    #contact-us {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-large);
+    }
+
+    #contact > div,
+    #social > div,
+    #feedback > div {
+        display: flex;
+        width: 100%;
+    }
+
+    #social > div {
+        display: flex;
+        gap: var(--spacing-small);
+        justify-content: center;
+    }
+
+    /* Pseudo-classes */
+
+    button:not([type='submit']):hover {
+        background-color: #0056b3;
+    }
+</style>
