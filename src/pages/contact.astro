@@ -24,12 +24,12 @@ import IconYouTube from '../assets/icon/brand-youtube.svg'
                     <button>Let's work together!</button>
                 </span>
                 <span>
-                    <h3>Want to contribute to the code?</h3>
-                    <button>Reach out on GitHub!</button>
-                </span>
-                <span>
                     <h3>Want to promote your product?</h3>
                     <button>Contact us for sponsorship!</button>
+                </span>
+                <span>
+                    <h3>Want to contribute to the code?</h3>
+                    <button>Reach out on GitHub!</button>
                 </span>
                 <span>
                     <h3>Found a bug?</h3>
@@ -40,16 +40,16 @@ import IconYouTube from '../assets/icon/brand-youtube.svg'
         <section id="social">
             <h2>Follow Us</h2>
             <div>
-                <IconBlueSky />
-                <IconDiscord />
-                <IconFacebook />
-                <IconGitHub />
-                <IconInstagram />
-                <IconLinkedIn />
-                <IconPinterest />
-                <IconReddit />
-                <IconTwitterX />
-                <IconYouTube />
+                <a href=""><IconBlueSky /></a>
+                <a href=""><IconDiscord /></a>
+                <a href=""><IconFacebook /></a>
+                <a href=""><IconGitHub /></a>
+                <a href=""><IconInstagram /></a>
+                <a href=""><IconLinkedIn /></a>
+                <a href=""><IconPinterest /></a>
+                <a href=""><IconReddit /></a>
+                <a href=""><IconTwitterX /></a>
+                <a href=""><IconYouTube /></a>
             </div>
         </section>
         <section id="feedback">
@@ -66,6 +66,38 @@ import IconYouTube from '../assets/icon/brand-youtube.svg'
 </Main>
 
 <style>
+    #contact > div {
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        gap: var(--spacing-small);
+    }
+
+    #contact > div > span {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        justify-content: space-between;
+        background-color: light-dark(rgb(0 0 0 / 0.1), rgb(255 255 255 / 0.05));
+        padding: var(--spacing-small);
+    }
+
+    #contact > div > span:nth-child(1) {
+        border-top-left-radius: var(--border-radius-medium);
+    }
+
+    #contact > div > span:nth-child(2) {
+        border-top-right-radius: var(--border-radius-medium);
+    }
+
+    #contact > div > span:nth-child(3) {
+        border-bottom-left-radius: var(--border-radius-medium);
+    }
+
+    #contact > div > span:nth-child(4) {
+        border-bottom-right-radius: var(--border-radius-medium);
+    }
+
     button:not([type='submit']) {
         margin: 10px;
         padding: 10px 20px;
@@ -82,18 +114,38 @@ import IconYouTube from '../assets/icon/brand-youtube.svg'
         text-align: center;
     }
 
-    #contact-us {
-        align-items: center;
-        display: flex;
-        flex-direction: column;
-        gap: var(--spacing-large);
+    #contact {
+        grid-area: contact;
     }
 
-    #contact > div,
+    #contact-us {
+        display: grid;
+        gap: var(--spacing-large);
+        grid-template-areas:
+            'get-in-touch get-in-touch'
+            'contact feedback'
+            'social feedback';
+        grid-template-columns: 1fr 1fr;
+        justify-self: center;
+        width: clamp(320px, 100%, 1000px);
+    }
+
+    #contact-us > h1 {
+        grid-area: get-in-touch;
+    }
+
     #social > div,
     #feedback > div {
         display: flex;
         width: 100%;
+    }
+
+    #feedback {
+        grid-area: feedback;
+    }
+
+    #social {
+        grid-area: social;
     }
 
     #social > div {
@@ -106,5 +158,18 @@ import IconYouTube from '../assets/icon/brand-youtube.svg'
 
     button:not([type='submit']):hover {
         background-color: #0056b3;
+    }
+
+    @media screen and (width <= 850px) {
+        #contact-us {
+            display: grid;
+            grid-template-areas:
+                'get-in-touch'
+                'contact'
+                'social'
+                'feedback';
+            grid-template-columns: 1fr;
+            gap: var(--spacing-large);
+        }
     }
 </style>
