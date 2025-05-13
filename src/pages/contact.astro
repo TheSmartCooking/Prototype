@@ -66,6 +66,26 @@ import IconYouTube from '../assets/icon/brand-youtube.svg'
 </Main>
 
 <style>
+    button:not([type='submit']) {
+        margin: 10px;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    h1,
+    h2,
+    h3 {
+        text-align: center;
+    }
+
+    #contact {
+        grid-area: contact;
+    }
+
     #contact > div {
         display: grid;
         grid-template-columns: repeat(2, auto);
@@ -98,26 +118,6 @@ import IconYouTube from '../assets/icon/brand-youtube.svg'
         border-bottom-right-radius: var(--border-radius-medium);
     }
 
-    button:not([type='submit']) {
-        margin: 10px;
-        padding: 10px 20px;
-        background-color: #007bff;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-
-    h1,
-    h2,
-    h3 {
-        text-align: center;
-    }
-
-    #contact {
-        grid-area: contact;
-    }
-
     #contact-us {
         display: grid;
         gap: var(--spacing-large);
@@ -134,14 +134,14 @@ import IconYouTube from '../assets/icon/brand-youtube.svg'
         grid-area: get-in-touch;
     }
 
-    #social > div,
-    #feedback > div {
-        display: flex;
-        width: 100%;
-    }
-
     #feedback {
         grid-area: feedback;
+    }
+
+    #feedback > div,
+    #social > div {
+        display: flex;
+        width: 100%;
     }
 
     #social {
@@ -162,14 +162,24 @@ import IconYouTube from '../assets/icon/brand-youtube.svg'
 
     @media screen and (width <= 850px) {
         #contact-us {
-            display: grid;
-            grid-template-areas:
-                'get-in-touch'
-                'contact'
-                'social'
-                'feedback';
-            grid-template-columns: 1fr;
-            gap: var(--spacing-large);
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-medium);
+        }
+
+        #contact > div {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-small);
+        }
+
+        #contact > div > span {
+            border-radius: var(--border-radius-small);
+        }
+
+        #social > div {
+            flex-wrap: wrap;
         }
     }
 </style>
