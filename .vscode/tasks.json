@@ -5,18 +5,33 @@
             "label": "Start Dev Server",
             "type": "shell",
             "command": "npm run dev",
-            "group": {
-                "kind": "none",
-                "isDefault": true
-            },
-            "presentation": {
-                "reveal": "always",
-                "panel": "dedicated",
-                "showReuseMessage": true
-            },
-            "problemMatcher": [],
             "runOptions": {
                 "runOn": "folderOpen"
+            },
+            "presentation": {
+                "clear": true,
+                "focus": true,
+                "panel": "dedicated",
+                "showReuseMessage": false
+            }
+        },
+        {
+            "label": "Prettify All Files",
+            "type": "shell",
+            "command": "npx prettier --write .",
+            "runOptions": {
+                "runOn": "folderOpen"
+            },
+            "presentation": {
+                "close": true
+            }
+        },
+        {
+            "label": "Prettify Current File",
+            "type": "shell",
+            "command": "npx prettier --write ${file}",
+            "presentation": {
+                "close": true
             }
         }
     ]

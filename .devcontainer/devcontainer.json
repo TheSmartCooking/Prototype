@@ -6,7 +6,7 @@
             "terminal.integrated.shell.linux": "/bin/bash"
         },
         "vscode": {
-            "extensions": ["astro-build.astro-vscode", "esbenp.prettier-vscode"]
+            "extensions": ["astro-build.astro-vscode", "gruntfuggly.triggertaskonsave"]
         }
     },
     "forwardPorts": [4321],
@@ -20,6 +20,6 @@
         }
     },
     "postStartCommand": "npm update && npm install",
-    "postAttachCommand": "npx prettier --write .",
-    "remoteUser": "vscode"
+    "remoteUser": "vscode",
+    "runArgs": ["--memory=1024m"]
 }
