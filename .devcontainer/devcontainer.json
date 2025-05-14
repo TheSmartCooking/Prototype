@@ -20,6 +20,5 @@
         }
     },
     "postStartCommand": "npm update && npm install",
-    "remoteUser": "vscode",
-    "runArgs": ["--memory=1024m"]
+    "remoteUser": "vscode"
 }
