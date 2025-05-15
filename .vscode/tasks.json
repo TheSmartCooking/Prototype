@@ -11,7 +11,6 @@
             "presentation": {
                 "clear": true,
                 "close": true,
-                "focus": true,
                 "panel": "dedicated",
                 "showReuseMessage": false
             }

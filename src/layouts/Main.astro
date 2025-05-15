@@ -24,7 +24,7 @@ const { canSearch = false } = Astro.props || {}
     <body>
         <img id="background" src="background.svg" fetchpriority="high" />
         <Header canSearch={canSearch} />
-        <main><slot /></main>
+        <main class={canSearch ? 'with-search' : ''}><slot /></main>
         <Footer />
     </body>
 </html>
@@ -74,9 +74,13 @@ const { canSearch = false } = Astro.props || {}
         }
     }
 
-    @media screen and (width <=850px) {
+    @media screen and (width <=1000px) {
         main {
             margin-top: calc(2 * var(--spacing-large) + 2rem);
+        }
+
+        main.with-search {
+            margin-top: calc(2 * var(--spacing-large) + 4rem);
         }
     }
 </style>
