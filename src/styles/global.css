@@ -74,6 +74,7 @@ svg {
     :root {
         --polaroid-width: 100svw;
 
+        /* Small screen font sizes for better readability on mobile devices */
         --font-size-heading: 1.75rem;
         --font-size-title: 1.5rem;
         --font-size-body: 1.25rem;
