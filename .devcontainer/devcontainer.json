@@ -6,11 +6,7 @@
             "terminal.integrated.shell.linux": "/bin/bash"
         },
         "vscode": {
-            "extensions": [
-                "esbenp.prettier-vscode",
-                "astro-build.astro-vscode",
-                "emeraldwalk.RunOnSave"
-            ]
+            "extensions": ["astro-build.astro-vscode", "gruntfuggly.triggertaskonsave"]
         }
     },
     "forwardPorts": [4321],
@@ -23,9 +19,6 @@
             "onAutoForward": "notify"
         }
     },
-    "postStartCommand": {
-        "package": "npm update && npm install",
-        "prettier": "npx prettier --write ."
-    },
+    "postStartCommand": "npm update && npm install",
     "remoteUser": "vscode"
 }
