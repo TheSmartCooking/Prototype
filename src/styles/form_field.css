@@ -18,7 +18,7 @@
     top: 1rem;
     left: 0.75rem;
     color: #888;
-    font-size: 1rem;
+    font-size: var(--font-size-small);
     pointer-events: none;
     transition: 0.2s ease all;
 }
@@ -27,7 +27,7 @@
 .form-field input.filled + label {
     top: -0.5rem;
     left: 0.5rem;
-    font-size: 0.75rem;
+    font-size: var(--font-size-tiny);
     color: var(--color-secondary);
 }
 

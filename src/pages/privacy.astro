@@ -1,5 +1,19 @@
 ---
+// src/pages/privacy.astro
 import Main from '../layouts/Main.astro'
+import PrivacyPolicy from '../content/privacy-policy.md'
+import '../styles/markdown.css'
 ---
 
-<Main title="Privacy Policy" />
+<Main title="Privacy Policy">
+    <div class="markdown"><PrivacyPolicy /></div>
+</Main>
+
+<style>
+    /* div {
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        justify-self: center;
+    } */
+</style>
