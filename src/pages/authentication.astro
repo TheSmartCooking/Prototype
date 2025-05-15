@@ -75,6 +75,16 @@ import PasswordRequirements from '../components/PasswordRequirements.astro'
         width: clamp(320px, 100%, 500px);
     }
 
+    ul {
+        list-style: none;
+    }
+
+    ul > li {
+        display: flex;
+        gap: var(--spacing-small);
+        align-items: center;
+    }
+
     .flip-link {
         font-weight: bold;
     }
@@ -155,6 +165,26 @@ import PasswordRequirements from '../components/PasswordRequirements.astro'
         }
 
         iconContainer.addEventListener('click', toggle)
+    })
+
+    passwordInput.addEventListener('input', () => {
+        const password = passwordInput.value
+        const requirements = [
+            { regex: /.{12,}/, index: 0 },
+            { regex: /[A-Z]/, index: 1 },
+            { regex: /[a-z]/, index: 2 },
+            { regex: /\d/, index: 3 },
+            { regex: /[^a-zA-Z0-9]/, index: 4 },
+        ]
+
+        requirements.forEach(({ regex, index }) => {
+            const isValid = regex.test(password)
+            const checkIcon = document.querySelectorAll('.password-requirement-check')[index]
+            const xIcon = document.querySelectorAll('.password-requirement-x')[index]
+
+            checkIcon.style.display = isValid ? 'inline' : 'none'
+            xIcon.style.display = isValid ? 'none' : 'inline'
+        })
     })
 
     passwordInput.addEventListener('input', () => {
