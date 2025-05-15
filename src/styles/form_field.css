@@ -39,20 +39,20 @@
     border-bottom-color: var(--color-error);
 }
 
+.form-field input.filled:user-valid {
+    border-bottom-color: var(--color-success);
+}
+
 .form-field input.filled:user-invalid:not(:focus) {
     background: linear-gradient(
         to top,
-        rgb(from var(--color-error) r g b / 0.1) 0%,
+        rgb(from var(--color-error) r g b / 10%) 0%,
         transparent 100%
     );
 }
 
 .form-field input.filled:user-invalid + label {
     color: var(--color-error);
-}
-
-.form-field input.filled:user-valid {
-    border-bottom-color: var(--color-success);
 }
 
 .form-field input.filled:user-valid + label {
