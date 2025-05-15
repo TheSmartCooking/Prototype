@@ -29,7 +29,10 @@
         {
             "label": "Prettify Current File",
             "type": "shell",
-            "command": "npx prettier --write ${file}"
+            "command": "npx prettier --write ${file}",
+            "presentation": {
+                "showReuseMessage": false
+            }
         }
     ]
 }
