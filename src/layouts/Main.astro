@@ -72,11 +72,13 @@ const { canSearch = false } = Astro.props || {}
 
     @media screen and (width <=1000px) {
         main {
-            margin-top: calc(var(--spacing-large) + 2rem);
+            margin-top: calc(var(--spacing-large) + var(--font-size-title) + var(--spacing-medium));
         }
 
         main.with-search {
-            margin-top: calc(var(--spacing-large) + 5rem);
+            margin-top: calc(
+                var(--spacing-large) + 3 * var(--font-size-title) + var(--spacing-medium)
+            );
         }
     }
 </style>
