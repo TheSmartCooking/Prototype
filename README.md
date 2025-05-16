@@ -28,20 +28,40 @@ We aim to make healthy, budget-friendly cooking accessible and fun, without requ
 - Responsive layout and design previews
 - Hosted via **GitHub Pages**
 
-> 💡 This repo does not include the backend logic, authentication, or database features. For that, see our main repositories and documentation below.
+> [!NOTE]
+> This repo does not include the backend logic, authentication, or database features. For that, see our main repositories and documentation below.
 
 ## 🧭 Project Resources
 
 - 📚 [Smart Cooking Wiki](https://github.com/TheSmartCooking/.github/wiki) — Full documentation, database models, API reference, and development guides.
 - 🏠 [TheSmartCooking Organization](https://github.com/TheSmartCooking) — Explore all repositories related to the project.
-- 🌐 [GitHub Pages Preview](#) — _[Add the live preview link here if available]_.
+- 🌐 [GitHub Pages Preview](https://thesmartcooking.github.io/Prototype/)
 
 ## 🛠️ Tech Stack
 
 - [Astro](https://astro.build) — Static site generator
 - [GitHub Pages](https://pages.github.com) — Hosting platform
-- [Tailwind CSS](https://tailwindcss.com) _(if applicable)_
-- [Markdown](https://www.markdownguide.org/) — Content formatting
+- [Docker](https://www.docker.com) — Dev container support
+- [Dev Containers](https://containers.dev) — Reproducible development environment
+- [GitHub Actions](https://docs.github.com/en/actions) — CI/CD and code quality workflows
+
+## 🧪 Tooling & Automation
+
+This repository includes development and automation tooling:
+
+### ⚙️ Devcontainer
+
+A Docker-based development container is defined in `.devcontainer/` for consistent onboarding and live-preview development. Features:
+
+- 🐧 Alpine-based image with Node.js and Bash
+- 🧱 VS Code extensions auto-installed (Astro, Trigger Tasks on Save)
+- 🚀 Auto-forwarded port for local live server
+
+### ✅ GitHub Workflows
+
+- `deploy-to-pages.yml`: Build and deploy site to GitHub Pages on release
+- `devcontainer-verification.yml`: Scan and validate `.devcontainer` image using a reusable workflow
+- `super-linter.yml`: Run [Super Linter](https://github.com/github/super-linter) for static analysis and code consistency
 
 ## 🤝 Contributing
 
@@ -55,7 +75,10 @@ We welcome feedback, designs, and accessibility improvements!
 
 ## 📄 License
 
-This repository is licensed under the [MIT License](LICENSE).
+This **repository** is licensed under the [MIT License](LICENSE).  
+Please note that other repositories in the Smart Cooking project may use different licenses. Refer to the license file in each individual repository for details.
+
+---
 
 Thanks for checking out **Smart Cooking – Prototype**!  
 For full-stack development, roadmap, and community efforts, head over to our [Wiki](https://github.com/TheSmartCooking/.github/wiki).
