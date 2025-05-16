@@ -1,0 +1,28 @@
+---
+import '../styles/global.css'
+import Main from '../layouts/Main.astro'
+---
+
+<Main title="Admin Panel">
+    <div id="admin-panel">
+        <section id="content">
+            <h1>Content</h1>
+        </section>
+        <section id="users">
+            <h1>Users</h1>
+        </section>
+        <section id="activity">
+            <h1>Activity</h1>
+        </section>
+        <section id="settings">
+            <h1>Settings</h1>
+        </section>
+    </div>
+</Main>
+
+<style>
+    .admin-panel {
+        display: flex;
+        width: 100%;
+    }
+</style>

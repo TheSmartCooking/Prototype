@@ -26,7 +26,7 @@
     --border-radius-medium: 16px;
     --border-radius-large: 32px;
 
-    /* 
+    /*
     Define font sizes for headings and body text.
     Use these to ensure a clear hierarchy and readability in the text.
      */
@@ -45,6 +45,11 @@
     --polaroid-width: 88mm;
     --polaroid-photo-size: calc(var(--polaroid-width) - 9mm);
     --polaroid-margin-top: calc((var(--polaroid-width) - var(--polaroid-photo-size)) / 2);
+
+    /*
+    Define the glassy effect for elements.
+     */
+    --background-glassy: light-dark(rgb(0 0 0 / 0.2), rgb(255 255 255 / 0.1));
 }
 
 * {
@@ -62,7 +67,12 @@ a {
 }
 
 h1 {
-    font-size: calc(1.5 * var(--spacing-medium));
+    font-size: var(--font-size-heading);
+    white-space: nowrap;
+}
+
+section {
+    background-color: var(--background-glassy);
 }
 
 svg {
