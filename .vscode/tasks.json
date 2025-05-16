@@ -2,7 +2,7 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "Start Dev Server",
+            "label": "Astro Dev Server",
             "type": "shell",
             "command": "npm run dev",
             "runOptions": {
@@ -11,7 +11,6 @@
             "presentation": {
                 "clear": true,
                 "close": true,
-                "focus": true,
                 "panel": "dedicated",
                 "showReuseMessage": false
             }
@@ -32,7 +31,7 @@
             "type": "shell",
             "command": "npx prettier --write ${file}",
             "presentation": {
-                "close": true
+                "showReuseMessage": false
             }
         }
     ]

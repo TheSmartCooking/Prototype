@@ -1,5 +1,10 @@
 ---
+// src/pages/privacy.astro
 import Main from '../layouts/Main.astro'
+import PrivacyPolicy from '../content/privacy-policy.md'
+import '../styles/markdown.css'
 ---
 
-<Main title="Privacy Policy" />
+<Main title="Privacy Policy">
+    <div class="markdown"><PrivacyPolicy /></div>
+</Main>

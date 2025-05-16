@@ -1,10 +1,9 @@
 ---
 import '../styles/global.css'
 import Main from '../layouts/Main.astro'
-import IconCheck from '../assets/icon/check.svg'
-import IconHidePassword from '../assets/icon/eye-off.svg'
-import IconShowPassword from '../assets/icon/eye.svg'
-import IconX from '../assets/icon/x.svg'
+import FormField from '../components/FormField.astro'
+import PasswordField from '../components/PasswordField.astro'
+import PasswordRequirements from '../components/PasswordRequirements.astro'
 ---
 
 <Main title="Authentication">
@@ -12,21 +11,8 @@ import IconX from '../assets/icon/x.svg'
         <section id="login">
             <h2>Login</h2>
             <form action="#">
-                <div class="form-field">
-                    <input type="email" id="login-email" name="login-email" required />
-                    <label for="login-email">E-mail</label>
-                </div>
-
-                <div class="form-field">
-                    <div class="input-with-icon">
-                        <input type="password" id="login-password" name="login-password" required />
-                        <label for="login-password">Password</label>
-                        <div class="icons" title="Toggle password visibility">
-                            <IconShowPassword class="show-password" />
-                            <IconHidePassword class="hide-password" />
-                        </div>
-                    </div>
-                </div>
+                <FormField id="login-username" type="text" name="login-username" label="Username" />
+                <PasswordField id="login-password" name="login-password" label="Password" />
                 <button type="submit">Login</button>
             </form>
 
@@ -38,82 +24,16 @@ import IconX from '../assets/icon/x.svg'
         <section id="register" style="display: none;">
             <h2>Register</h2>
             <form action="#">
-                <div class="form-field">
-                    <input type="text" id="register-username" name="register-username" required />
-                    <label for="register-username">Username</label>
-                </div>
+                <FormField id="register-uname" type="text" name="register-uname" label="Username" />
+                <FormField id="register-email" type="email" name="register-email" label="E-mail" />
+                <PasswordField id="register-password" name="register-password" label="Password" />
+                <PasswordField
+                    id="register-password-confirm"
+                    name="register-password-confirm"
+                    label="Password confirmation"
+                />
 
-                <div class="form-field">
-                    <input type="email" id="register-email" name="register-email" required />
-                    <label for="register-email">E-mail</label>
-                </div>
-
-                <div class="form-field">
-                    <div class="input-with-icon">
-                        <input
-                            type="password"
-                            id="register-password"
-                            name="register-password"
-                            required
-                        />
-                        <label for="register-password">Password</label>
-                        <div class="icons" title="Toggle password visibility">
-                            <IconShowPassword class="show-password" />
-                            <IconHidePassword class="hide-password" />
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-field">
-                    <div class="input-with-icon">
-                        <input
-                            type="password"
-                            id="register-password-confirm"
-                            name="register-password-confirm"
-                            required
-                        />
-                        <label for="register-password-confirm">Password confirmation</label>
-                        <div class="icons" title="Toggle password visibility">
-                            <IconShowPassword class="show-password" />
-                            <IconHidePassword class="hide-password" />
-                        </div>
-                    </div>
-                </div>
-
-                <div id="password-requirements">
-                    <h3>Password requirements</h3>
-                    <ul>
-                        <li>
-                            <IconCheck class="password-requirement-check" />
-                            <IconX class="password-requirement-x" />
-                            <span>At least 12 characters long.</span>
-                        </li>
-                        <li>
-                            <IconCheck class="password-requirement-check" />
-                            <IconX class="password-requirement-x" />
-                            <span> Contains at least one uppercase letter (A-Z). </span>
-                        </li>
-                        <li>
-                            <IconCheck class="password-requirement-check" />
-                            <IconX class="password-requirement-x" />
-                            <span> Contains at least one lowercase letter (a-z). </span>
-                        </li>
-                        <li>
-                            <IconCheck class="password-requirement-check" />
-                            <IconX class="password-requirement-x" />
-                            <span>Contains at least one digit (0-9).</span>
-                        </li>
-                        <li>
-                            <IconCheck class="password-requirement-check" />
-                            <IconX class="password-requirement-x" />
-                            <span>
-                                Contains at least one special character (any non-alphanumeric
-                                character).
-                            </span>
-                        </li>
-                    </ul>
-                </div>
-
+                <PasswordRequirements />
                 <button type="submit">Register</button>
             </form>
 
@@ -131,7 +51,7 @@ import IconX from '../assets/icon/x.svg'
         background-color: var(--color-secondary);
         border: none;
         border-radius: var(--border-radius-large);
-        font-size: 1rem;
+        font-size: var(--font-size-small);
         padding: 1rem 2rem;
     }
 
@@ -167,75 +87,6 @@ import IconX from '../assets/icon/x.svg'
 
     .flip-link {
         font-weight: bold;
-    }
-
-    .form-field {
-        position: relative;
-        width: 100%;
-    }
-
-    .form-field input {
-        width: 100%;
-        padding: 1rem 0.75rem 0.25rem;
-        font-size: 1rem;
-        background: transparent;
-        border: none;
-        border-bottom: 2px solid #888;
-        color: white;
-        outline: none;
-    }
-
-    .form-field label {
-        position: absolute;
-        top: 1rem;
-        left: 0.75rem;
-        color: #888;
-        font-size: 1rem;
-        pointer-events: none;
-        transition: 0.2s ease all;
-    }
-
-    .form-field input:focus + label,
-    .form-field input.filled + label {
-        top: -0.5rem;
-        left: 0.5rem;
-        font-size: 0.75rem;
-        color: var(--color-secondary);
-    }
-
-    .form-field input:focus {
-        border-bottom-color: var(--color-secondary);
-    }
-
-    .hide-password,
-    .password-requirement-check {
-        display: none;
-    }
-
-    .show-password {
-        color: #888;
-    }
-
-    .icons {
-        cursor: pointer;
-    }
-
-    .input-with-icon {
-        display: flex;
-    }
-
-    .password-requirement-check,
-    .password-requirement-x {
-        width: 1.75rem;
-        min-width: 1.75rem;
-    }
-
-    .password-requirement-check {
-        color: var(--color-success);
-    }
-
-    .password-requirement-x {
-        color: var(--color-error);
     }
 
     #authentication {
@@ -314,6 +165,26 @@ import IconX from '../assets/icon/x.svg'
         }
 
         iconContainer.addEventListener('click', toggle)
+    })
+
+    passwordInput.addEventListener('input', () => {
+        const password = passwordInput.value
+        const requirements = [
+            { regex: /.{12,}/, index: 0 },
+            { regex: /[A-Z]/, index: 1 },
+            { regex: /[a-z]/, index: 2 },
+            { regex: /\d/, index: 3 },
+            { regex: /[^a-zA-Z0-9]/, index: 4 },
+        ]
+
+        requirements.forEach(({ regex, index }) => {
+            const isValid = regex.test(password)
+            const checkIcon = document.querySelectorAll('.password-requirement-check')[index]
+            const xIcon = document.querySelectorAll('.password-requirement-x')[index]
+
+            checkIcon.style.display = isValid ? 'inline' : 'none'
+            xIcon.style.display = isValid ? 'none' : 'inline'
+        })
     })
 
     passwordInput.addEventListener('input', () => {

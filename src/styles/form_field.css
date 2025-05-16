@@ -1,0 +1,60 @@
+.form-field {
+    position: relative;
+    width: 100%;
+}
+
+.form-field input {
+    width: 100%;
+    padding: 1rem 0.75rem 0.25rem;
+    font-size: 1rem;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #888;
+    outline: none;
+}
+
+.form-field label {
+    position: absolute;
+    top: 1rem;
+    left: 0.75rem;
+    color: #888;
+    font-size: var(--font-size-small);
+    pointer-events: none;
+    transition: 0.2s ease all;
+}
+
+.form-field input:focus + label,
+.form-field input.filled + label {
+    top: -0.5rem;
+    left: 0.5rem;
+    font-size: var(--font-size-tiny);
+    color: var(--color-secondary);
+}
+
+.form-field input:focus {
+    border-bottom-color: var(--color-secondary);
+}
+
+.form-field input.filled:user-invalid {
+    border-bottom-color: var(--color-error);
+}
+
+.form-field input.filled:user-valid {
+    border-bottom-color: var(--color-success);
+}
+
+.form-field input.filled:user-invalid:not(:focus) {
+    background: linear-gradient(
+        to top,
+        rgb(from var(--color-error) r g b / 10%) 0%,
+        transparent 100%
+    );
+}
+
+.form-field input.filled:user-invalid + label {
+    color: var(--color-error);
+}
+
+.form-field input.filled:user-valid + label {
+    color: var(--color-success);
+}
