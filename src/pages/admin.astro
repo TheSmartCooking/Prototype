@@ -14,6 +14,11 @@ import Main from '../layouts/Main.astro'
                     <li>Media</li>
                 </ul>
             </nav>
+            <div class="admin-panel-data">
+                <div class="show">Showing recipes</div>
+                <div class="hide">Showing comments</div>
+                <div class="hide">Showing media</div>
+            </div>
         </section>
 
         <section id="users">
@@ -25,6 +30,11 @@ import Main from '../layouts/Main.astro'
                     <li>Flags</li>
                 </ul>
             </nav>
+            <div class="admin-panel-data">
+                <div class="show">Showing user list</div>
+                <div class="hide">Showing reports</div>
+                <div class="hide">Showing flags</div>
+            </div>
         </section>
 
         <section id="activity">
@@ -36,6 +46,11 @@ import Main from '../layouts/Main.astro'
                     <li>Audit logs</li>
                 </ul>
             </nav>
+            <div class="admin-panel-data">
+                <div class="show">Showing site stats</div>
+                <div class="hide">Showing trending</div>
+                <div class="hide">Showing audit logs</div>
+            </div>
         </section>
     </div>
 </Main>
@@ -53,8 +68,39 @@ import Main from '../layouts/Main.astro'
         width: 90%;
     }
 
+    div.hide {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+
+    div.show {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    div.admin-panel-data {
+        overflow: hidden;
+        min-height: calc(100% - var(--spacing-large) - var(--spacing-medium));
+    }
+
+    div.admin-panel-data {
+        overflow: hidden;
+        position: relative;
+    }
+
+    div.admin-panel-data > div {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
+
     h1 {
         text-align: center;
+    }
+
+    li.admin-panel-selected {
+        background-color: var(--background-glassy);
     }
 
     nav {
@@ -69,7 +115,8 @@ import Main from '../layouts/Main.astro'
     }
 
     nav > ul > li {
-        border-radius: var(--border-radius-medium);
+        border-top-left-radius: var(--border-radius-small);
+        border-top-right-radius: var(--border-radius-small);
         cursor: pointer;
         padding: var(--spacing-small);
     }
@@ -77,6 +124,10 @@ import Main from '../layouts/Main.astro'
     section {
         border-radius: var(--border-radius-large);
         padding: var(--spacing-medium);
+    }
+
+    section#activity {
+        grid-area: activity;
     }
 
     section#content {
@@ -87,16 +138,8 @@ import Main from '../layouts/Main.astro'
         grid-area: users;
     }
 
-    section#activity {
-        grid-area: activity;
-    }
-
     section#settings {
         grid-area: settings;
-    }
-
-    .admin-panel-selected {
-        background-color: var(--background-glassy);
     }
 
     @media screen and (width<=1000px) {
@@ -115,9 +158,17 @@ import Main from '../layouts/Main.astro'
         menu.addEventListener('click', (event) => {
             if (event.target.tagName === 'LI') {
                 const current = menu.querySelector('.admin-panel-selected')
+                const index = Array.from(menu.children).indexOf(event.target)
+                const data = menu.closest('section').querySelector('.admin-panel-data')
+                const items = data.children
 
                 if (current) current.classList.remove('admin-panel-selected')
                 event.target.classList.add('admin-panel-selected')
+
+                Array.from(items).forEach((item, i) => {
+                    item.classList.toggle('show', i === index)
+                    item.classList.toggle('hide', i !== index)
+                })
             }
         })
     })
