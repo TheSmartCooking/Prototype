@@ -18,7 +18,7 @@ Our goal is to build a collaborative platform where users can share:
 
 We aim to make healthy, budget-friendly cooking accessible and fun, without requiring specialized culinary knowledge.
 
-🗓️ **Started:** June 2024  
+🗓️ **Started:** June 2024
 🚀 **Status:** In active development
 
 ## 📦 What’s in this Repository?
@@ -75,10 +75,10 @@ We welcome feedback, designs, and accessibility improvements!
 
 ## 📄 License
 
-This **repository** is licensed under the [MIT License](LICENSE).  
+This **repository** is licensed under the [MIT License](LICENSE).
 Please note that other repositories in the Smart Cooking project may use different licenses. Refer to the license file in each individual repository for details.
 
 ---
 
-Thanks for checking out **Smart Cooking – Prototype**!  
+Thanks for checking out **Smart Cooking – Prototype**!
 For full-stack development, roadmap, and community efforts, head over to our [Wiki](https://github.com/TheSmartCooking/.github/wiki).
