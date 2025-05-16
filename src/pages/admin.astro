@@ -7,22 +7,104 @@ import Main from '../layouts/Main.astro'
     <div id="admin-panel">
         <section id="content">
             <h1>Content</h1>
+            <nav>
+                <ul id="content-nav">
+                    <li class="admin-panel-selected">Recipes</li>
+                    <li>Comments</li>
+                    <li>Media</li>
+                </ul>
+            </nav>
         </section>
+
         <section id="users">
             <h1>Users</h1>
+            <nav>
+                <ul>
+                    <li class="admin-panel-selected">User list</li>
+                    <li>Reports</li>
+                    <li>Flags</li>
+                </ul>
+            </nav>
         </section>
+
         <section id="activity">
             <h1>Activity</h1>
-        </section>
-        <section id="settings">
-            <h1>Settings</h1>
+            <nav>
+                <ul>
+                    <li class="admin-panel-selected">Site stats</li>
+                    <li>Trending</li>
+                    <li>Audit logs</li>
+                </ul>
+            </nav>
         </section>
     </div>
 </Main>
 
 <style>
-    .admin-panel {
+    div#admin-panel {
+        display: grid;
+        width: 100%;
+        grid-template:
+            'content users'
+            'content activity' / 1fr 1fr;
+        gap: var(--spacing-medium);
+        height: 100%;
+        justify-content: center;
+        width: 90%;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    nav {
+        border-bottom: 1px solid #888;
+    }
+
+    nav > ul {
+        list-style: none;
         display: flex;
         width: 100%;
+        justify-content: space-around;
+    }
+
+    nav > ul > li {
+        border-radius: var(--border-radius-medium);
+        padding: var(--spacing-small);
+    }
+
+    section {
+        border-radius: var(--border-radius-large);
+        padding: var(--spacing-medium);
+    }
+
+    section#content {
+        grid-area: content;
+    }
+
+    section#users {
+        grid-area: users;
+    }
+
+    section#activity {
+        grid-area: activity;
+    }
+
+    section#settings {
+        grid-area: settings;
+    }
+
+    .admin-panel-selected {
+        background-color: var(--background-glassy);
+    }
+
+    @media screen and (width<=1000px) {
+        div#admin-panel {
+            grid-template:
+                'content'
+                'users'
+                'activity' / 1fr;
+            width: 95%;
+        }
     }
 </style>
