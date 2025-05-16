@@ -1,48 +1,61 @@
-# Astro Starter Kit: Basics
+# Smart Cooking – Prototype
 
-```sh
-npm create astro@latest -- --template basics
-```
+Static preview of the site built with [Astro](https://astro.build), featuring UI components and hosted on [GitHub Pages](https://pages.github.com).
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+This repository serves as the **visual prototype** of the [Smart Cooking](https://github.com/TheSmartCooking) project. It provides a static, frontend-only version of the website, showcasing the user interface, design elements, and layout without backend or dynamic functionality.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+---
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+## 🌟 About Smart Cooking
 
-## 🚀 Project Structure
+**Smart Cooking** is a project dedicated to helping everyone — especially students — cook healthy, enjoyable meals on a budget.
 
-Inside of your Astro project, you'll see the following folders and files:
+Our goal is to build a collaborative platform where users can share:
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+- 🥘 Recipes
+- 💡 Tips & tricks
+- 🧑‍🍳 Practical cooking advice
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+We aim to make healthy, budget-friendly cooking accessible and fun, without requiring specialized culinary knowledge.
 
-## 🧞 Commands
+🗓️ **Started:** June 2024  
+🚀 **Status:** In active development
 
-All commands are run from the root of the project, from a terminal:
+## 📦 What’s in this Repository?
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+- Static frontend pages built using **Astro**
+- Reusable UI components (e.g., headers, cards, buttons)
+- Responsive layout and design previews
+- Hosted via **GitHub Pages**
 
-## 👀 Want to learn more?
+> 💡 This repo does not include the backend logic, authentication, or database features. For that, see our main repositories and documentation below.
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## 🧭 Project Resources
+
+- 📚 [Smart Cooking Wiki](https://github.com/TheSmartCooking/.github/wiki) — Full documentation, database models, API reference, and development guides.
+- 🏠 [TheSmartCooking Organization](https://github.com/TheSmartCooking) — Explore all repositories related to the project.
+- 🌐 [GitHub Pages Preview](#) — _[Add the live preview link here if available]_.
+
+## 🛠️ Tech Stack
+
+- [Astro](https://astro.build) — Static site generator
+- [GitHub Pages](https://pages.github.com) — Hosting platform
+- [Tailwind CSS](https://tailwindcss.com) _(if applicable)_
+- [Markdown](https://www.markdownguide.org/) — Content formatting
+
+## 🤝 Contributing
+
+If you’d like to contribute to the UI or suggest improvements:
+
+1. Fork this repository
+2. Create a feature branch
+3. Submit a pull request with a clear description
+
+We welcome feedback, designs, and accessibility improvements!
+
+## 📄 License
+
+This repository is licensed under the [MIT License](LICENSE).
+
+Thanks for checking out **Smart Cooking – Prototype**!  
+For full-stack development, roadmap, and community efforts, head over to our [Wiki](https://github.com/TheSmartCooking/.github/wiki).
