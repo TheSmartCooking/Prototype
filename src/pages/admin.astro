@@ -8,7 +8,7 @@ import Main from '../layouts/Main.astro'
         <section id="content">
             <h1>Content</h1>
             <nav>
-                <ul id="content-nav">
+                <ul>
                     <li class="admin-panel-selected">Recipes</li>
                     <li>Comments</li>
                     <li>Media</li>
@@ -70,6 +70,7 @@ import Main from '../layouts/Main.astro'
 
     nav > ul > li {
         border-radius: var(--border-radius-medium);
+        cursor: pointer;
         padding: var(--spacing-small);
     }
 
@@ -108,3 +109,16 @@ import Main from '../layouts/Main.astro'
         }
     }
 </style>
+
+<script type="module" is:inline>
+    document.querySelectorAll('nav > ul').forEach((menu) => {
+        menu.addEventListener('click', (event) => {
+            if (event.target.tagName === 'LI') {
+                const current = menu.querySelector('.admin-panel-selected')
+
+                if (current) current.classList.remove('admin-panel-selected')
+                event.target.classList.add('admin-panel-selected')
+            }
+        })
+    })
+</script>
