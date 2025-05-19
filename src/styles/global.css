@@ -26,6 +26,16 @@
     --border-radius-medium: 16px;
     --border-radius-large: 32px;
 
+    /* 
+    Define font sizes for headings and body text.
+    Use these to ensure a clear hierarchy and readability in the text.
+     */
+    --font-size-heading: 2.4rem;
+    --font-size-title: 2rem;
+    --font-size-body: 1.5rem;
+    --font-size-small: 1rem;
+    --font-size-tiny: 0.75rem;
+
     /*
     Define a polaroid informations.
     Use these to create a consistent look and feel for the recipe cards.
@@ -87,5 +97,12 @@ svg {
 @media screen and (width <=320px) {
     :root {
         --polaroid-width: 100svw;
+
+        /* Small screen font sizes for better readability on mobile devices */
+        --font-size-heading: 1.75rem;
+        --font-size-title: 1.5rem;
+        --font-size-body: 1.25rem;
+        --font-size-small: 0.75rem;
+        --font-size-tiny: 0.5rem;
     }
 }

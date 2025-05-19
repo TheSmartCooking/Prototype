@@ -25,6 +25,7 @@ const { canSearch = false } = Astro.props || {}
 
 <style>
     h1 {
+        font-size: var(--font-size-title);
         text-wrap: nowrap;
     }
 
@@ -74,10 +75,6 @@ const { canSearch = false } = Astro.props || {}
         header > *:first-child,
         header > *:last-child {
             margin: 0;
-        }
-
-        h1 {
-            font-size: 1.75rem;
         }
 
         svg {

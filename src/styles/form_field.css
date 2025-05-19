@@ -28,7 +28,7 @@ button[type='submit'] {
     top: 1rem;
     left: 0.75rem;
     color: #888;
-    font-size: 1rem;
+    font-size: var(--font-size-small);
     pointer-events: none;
     transition: 0.2s ease all;
 }
@@ -37,7 +37,7 @@ button[type='submit'] {
 .form-field input.filled + label {
     top: -0.5rem;
     left: 0.5rem;
-    font-size: 0.75rem;
+    font-size: var(--font-size-tiny);
     color: var(--color-secondary);
 }
 
@@ -49,10 +49,14 @@ button[type='submit'] {
     border-bottom-color: var(--color-error);
 }
 
+.form-field input.filled:user-valid {
+    border-bottom-color: var(--color-success);
+}
+
 .form-field input.filled:user-invalid:not(:focus) {
     background: linear-gradient(
         to top,
-        rgb(from var(--color-error) r g b / 0.1) 0%,
+        rgb(from var(--color-error) r g b / 10%) 0%,
         transparent 100%
     );
 }
@@ -61,16 +65,6 @@ button[type='submit'] {
     color: var(--color-error);
 }
 
-.form-field input.filled:user-valid {
-    border-bottom-color: var(--color-success);
-}
-
 .form-field input.filled:user-valid + label {
     color: var(--color-success);
-}
-
-/* Pseudo-classes */
-
-button[type='submit']:hover {
-    background-color: var(--color-primary);
 }
