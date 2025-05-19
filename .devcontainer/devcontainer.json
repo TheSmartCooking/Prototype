@@ -20,6 +20,5 @@
         }
     },
     "postStartCommand": "npm update && npm install",
-    "postAttachCommand": "npx prettier --write .",
     "remoteUser": "vscode"
 }
