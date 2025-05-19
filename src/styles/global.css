@@ -66,12 +66,36 @@ a {
     color: var(--color-secondary);
 }
 
+a[target='_blank'] {
+    cursor: alias;
+}
+
 body,
 main {
     align-items: center;
     display: flex;
     flex-direction: column;
     gap: var(--spacing-large);
+}
+
+button[type='submit'] {
+    color: white;
+    cursor: pointer;
+    background-color: var(--color-secondary);
+    border: none;
+    border-radius: var(--border-radius-large);
+    font-size: 1rem;
+    padding: 1rem 2rem;
+}
+
+form {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-medium);
+    height: 100%;
+    justify-content: center;
+    width: 100%;
 }
 
 h1 {
@@ -81,6 +105,16 @@ h1 {
 
 section {
     background-color: var(--background-glassy);
+}
+
+section.glassy {
+    background-color: light-dark(rgb(0 0 0 / 20%), rgb(255 255 255 / 10%));
+    border-radius: var(--border-radius-large);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-medium);
+    padding: var(--spacing-medium);
+    width: clamp(320px, 100%, 500px);
 }
 
 svg {
