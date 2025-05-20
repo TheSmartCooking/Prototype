@@ -2,7 +2,7 @@
 
 Static preview of the site built with [Astro](https://astro.build), featuring UI components and hosted on [GitHub Pages](https://pages.github.com).
 
-This repository serves as the **visual prototype** of the [Smart Cooking](https://github.com/TheSmartCooking) project. It provides a static, frontend-only version of the website, showcasing the user interface, design elements, and layout without backend or dynamic functionality.
+This repository serves as the **visual prototype** of the [Smart Cooking](https://github.com/TheSmartCooking) project. It provides a static, frontend-only version of the site, showcasing the user interface, design elements, and layout without backend or dynamic functionality.
 
 ---
 
@@ -54,7 +54,7 @@ This repository includes development and automation tooling:
 A Docker-based development container is defined in `.devcontainer/` for consistent onboarding and live-preview development. Features:
 
 - 🐧 Alpine-based image with Node.js and Bash
-- 🧱 VS Code extensions auto-installed (Astro, Trigger Tasks on Save)
+- 🧱 Visual Studio Code extensions auto-installed (Astro, Trigger Tasks on Save)
 - 🚀 Auto-forwarded port for local live server
 
 ### ✅ GitHub Workflows
