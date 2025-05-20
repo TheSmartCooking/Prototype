@@ -49,7 +49,7 @@
     /*
     Define the glassy effect for elements.
      */
-    --background-glassy: light-dark(rgb(0 0 0 / 0.2), rgb(255 255 255 / 0.1));
+    --background-glassy: light-dark(rgb(0 0 0 / 20%), rgb(255 255 255 / 10%));
 }
 
 * {
