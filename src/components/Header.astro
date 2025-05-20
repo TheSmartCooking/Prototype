@@ -3,6 +3,7 @@ import '../styles/global.css'
 import SearchBar from '../components/SearchBar.astro'
 import IconHome from '../assets/icon/home.svg'
 import IconUser from '../assets/icon/user-circle.svg'
+import IconAdminPanel from '../assets/icon/device-desktop-analytics.svg'
 
 import { SITE_NAME } from '../config.js'
 const { canSearch = false } = Astro.props || {}
@@ -16,6 +17,9 @@ const { canSearch = false } = Astro.props || {}
     {canSearch && <SearchBar placeholder="Search for recipes..." />}
     <nav>
         <ul>
+            <li title="Admin Panel">
+                <a href="admin.html"><IconAdminPanel /></a>
+            </li>
             <li title="Account">
                 <a href="authentication.html"><IconUser /></a>
             </li>
@@ -24,11 +28,6 @@ const { canSearch = false } = Astro.props || {}
 </header>
 
 <style>
-    h1 {
-        font-size: var(--font-size-title);
-        text-wrap: nowrap;
-    }
-
     header {
         background-color: var(--color-primary);
         display: flex;
@@ -52,7 +51,6 @@ const { canSearch = false } = Astro.props || {}
     header > a {
         display: flex;
         gap: var(--spacing-small);
-        text-decoration: none;
     }
 
     ul {

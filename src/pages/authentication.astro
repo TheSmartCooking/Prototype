@@ -8,7 +8,7 @@ import PasswordRequirements from '../components/PasswordRequirements.astro'
 
 <Main title="Authentication">
     <div id="authentication">
-        <section id="login">
+        <section id="login" class="glassy">
             <h2>Login</h2>
             <form action="#">
                 <FormField id="login-username" type="text" name="login-username" label="Username" />
@@ -21,7 +21,7 @@ import PasswordRequirements from '../components/PasswordRequirements.astro'
             </a>
         </section>
 
-        <section id="register" style="display: none;">
+        <section id="register" class="glassy" style="display: none;">
             <h2>Register</h2>
             <form action="#">
                 <FormField id="register-uname" type="text" name="register-uname" label="Username" />
@@ -66,7 +66,6 @@ import PasswordRequirements from '../components/PasswordRequirements.astro'
     }
 
     section {
-        background-color: light-dark(rgb(0 0 0 / 0.2), rgb(255 255 255 / 0.1));
         border-radius: var(--border-radius-large);
         display: flex;
         flex-direction: column;

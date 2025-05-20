@@ -1,0 +1,175 @@
+---
+import '../styles/global.css'
+import Main from '../layouts/Main.astro'
+---
+
+<Main title="Admin Panel">
+    <div id="admin-panel">
+        <section id="content">
+            <h1>Content</h1>
+            <nav>
+                <ul>
+                    <li class="admin-panel-selected">Recipes</li>
+                    <li>Comments</li>
+                    <li>Media</li>
+                </ul>
+            </nav>
+            <div class="admin-panel-data">
+                <div class="show">Showing recipes</div>
+                <div class="hide">Showing comments</div>
+                <div class="hide">Showing media</div>
+            </div>
+        </section>
+
+        <section id="users">
+            <h1>Users</h1>
+            <nav>
+                <ul>
+                    <li class="admin-panel-selected">User list</li>
+                    <li>Reports</li>
+                    <li>Flags</li>
+                </ul>
+            </nav>
+            <div class="admin-panel-data">
+                <div class="show">Showing user list</div>
+                <div class="hide">Showing reports</div>
+                <div class="hide">Showing flags</div>
+            </div>
+        </section>
+
+        <section id="activity">
+            <h1>Activity</h1>
+            <nav>
+                <ul>
+                    <li class="admin-panel-selected">Site stats</li>
+                    <li>Trending</li>
+                    <li>Audit logs</li>
+                </ul>
+            </nav>
+            <div class="admin-panel-data">
+                <div class="show">Showing site stats</div>
+                <div class="hide">Showing trending</div>
+                <div class="hide">Showing audit logs</div>
+            </div>
+        </section>
+    </div>
+</Main>
+
+<style>
+    div#admin-panel {
+        display: grid;
+        width: 100%;
+        grid-template:
+            'content users'
+            'content activity' / 1fr 1fr;
+        gap: var(--spacing-medium);
+        height: 100%;
+        justify-content: center;
+        width: 90%;
+    }
+
+    div.hide {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+
+    div.show {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    div.admin-panel-data {
+        overflow: hidden;
+        min-height: calc(100% - var(--spacing-large) - var(--spacing-medium));
+    }
+
+    div.admin-panel-data {
+        overflow: hidden;
+        position: relative;
+    }
+
+    div.admin-panel-data > div {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    li.admin-panel-selected {
+        background-color: var(--background-glassy);
+    }
+
+    nav {
+        border-bottom: 1px solid #888;
+    }
+
+    nav > ul {
+        list-style: none;
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+    }
+
+    nav > ul > li {
+        border-top-left-radius: var(--border-radius-small);
+        border-top-right-radius: var(--border-radius-small);
+        cursor: pointer;
+        padding: var(--spacing-small);
+    }
+
+    section {
+        border-radius: var(--border-radius-large);
+        padding: var(--spacing-medium);
+    }
+
+    section#activity {
+        grid-area: activity;
+    }
+
+    section#content {
+        grid-area: content;
+    }
+
+    section#users {
+        grid-area: users;
+    }
+
+    section#settings {
+        grid-area: settings;
+    }
+
+    @media screen and (width<=1000px) {
+        div#admin-panel {
+            grid-template:
+                'content'
+                'users'
+                'activity' / 1fr;
+            width: 95%;
+        }
+    }
+</style>
+
+<script type="module" is:inline>
+    document.querySelectorAll('nav > ul').forEach((menu) => {
+        menu.addEventListener('click', (event) => {
+            if (event.target.tagName === 'LI') {
+                const current = menu.querySelector('.admin-panel-selected')
+                const index = Array.from(menu.children).indexOf(event.target)
+                const data = menu.closest('section').querySelector('.admin-panel-data')
+                const items = data.children
+
+                if (current) current.classList.remove('admin-panel-selected')
+                event.target.classList.add('admin-panel-selected')
+
+                Array.from(items).forEach((item, i) => {
+                    item.classList.toggle('show', i === index)
+                    item.classList.toggle('hide', i !== index)
+                })
+            }
+        })
+    })
+</script>

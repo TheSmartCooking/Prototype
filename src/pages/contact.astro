@@ -1,5 +1,185 @@
 ---
 import Main from '../layouts/Main.astro'
+import FormField from '../components/FormField.astro'
+import IconBlueSky from '../assets/icon/brand-bluesky.svg'
+import IconDiscord from '../assets/icon/brand-discord.svg'
+import IconFacebook from '../assets/icon/brand-facebook.svg'
+import IconGitHub from '../assets/icon/brand-github.svg'
+import IconInstagram from '../assets/icon/brand-instagram.svg'
+import IconLinkedIn from '../assets/icon/brand-linkedin.svg'
+import IconPinterest from '../assets/icon/brand-pinterest.svg'
+import IconReddit from '../assets/icon/brand-reddit.svg'
+import IconTwitterX from '../assets/icon/brand-x.svg'
+import IconYouTube from '../assets/icon/brand-youtube.svg'
 ---
 
-<Main title="Contact Us" />
+<Main title="Contact Us">
+    <div id="contact-us">
+        <h1>How to Get in Touch</h1>
+        <section id="contact" class="glassy">
+            <h2>Work with Us</h2>
+            <div>
+                <span>
+                    <h3>Professional cook?</h3>
+                    <button>Let's work together!</button>
+                </span>
+                <span>
+                    <h3>Want to promote your product?</h3>
+                    <button>Contact us for sponsorship!</button>
+                </span>
+                <span>
+                    <h3>Want to contribute to the code?</h3>
+                    <button>Reach out on GitHub!</button>
+                </span>
+                <span>
+                    <h3>Found a bug?</h3>
+                    <button>Report a bug!</button>
+                </span>
+            </div>
+        </section>
+        <section id="social" class="glassy">
+            <h2>Follow Us</h2>
+            <div>
+                <a href=""><IconBlueSky /></a>
+                <a href=""><IconDiscord /></a>
+                <a href=""><IconFacebook /></a>
+                <a href=""><IconGitHub /></a>
+                <a href=""><IconInstagram /></a>
+                <a href=""><IconLinkedIn /></a>
+                <a href=""><IconPinterest /></a>
+                <a href=""><IconReddit /></a>
+                <a href=""><IconTwitterX /></a>
+                <a href=""><IconYouTube /></a>
+            </div>
+        </section>
+        <section id="feedback" class="glassy">
+            <h2>Feedback</h2>
+            <h3>Have a suggestion?</h3>
+            <form action="#">
+                <FormField id="name" type="text" name="name" label="Name" />
+                <FormField id="email" type="email" name="email" label="Email" />
+                <FormField id="message" type="textarea" name="message" label="Message" />
+                <button type="submit">Send</button>
+            </form>
+        </section>
+    </div>
+</Main>
+
+<style>
+    button:not([type='submit']) {
+        margin: 10px;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    h1,
+    h2,
+    h3 {
+        text-align: center;
+    }
+
+    #contact {
+        grid-area: contact;
+    }
+
+    #contact > div {
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        gap: var(--spacing-small);
+    }
+
+    #contact > div > span {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        justify-content: space-between;
+        background-color: light-dark(rgb(0 0 0 / 0.1), rgb(255 255 255 / 0.05));
+        padding: var(--spacing-small);
+    }
+
+    #contact > div > span:nth-child(1) {
+        border-top-left-radius: var(--border-radius-medium);
+    }
+
+    #contact > div > span:nth-child(2) {
+        border-top-right-radius: var(--border-radius-medium);
+    }
+
+    #contact > div > span:nth-child(3) {
+        border-bottom-left-radius: var(--border-radius-medium);
+    }
+
+    #contact > div > span:nth-child(4) {
+        border-bottom-right-radius: var(--border-radius-medium);
+    }
+
+    #contact-us {
+        display: grid;
+        gap: var(--spacing-large);
+        grid-template-areas:
+            'get-in-touch get-in-touch'
+            'contact feedback'
+            'social feedback';
+        grid-template-columns: 1fr 1fr;
+        justify-self: center;
+        width: clamp(320px, 100%, 1000px);
+    }
+
+    #contact-us > h1 {
+        grid-area: get-in-touch;
+    }
+
+    #feedback {
+        grid-area: feedback;
+    }
+
+    #feedback > div,
+    #social > div {
+        display: flex;
+        width: 100%;
+    }
+
+    #social {
+        grid-area: social;
+    }
+
+    #social > div {
+        display: flex;
+        gap: var(--spacing-small);
+        justify-content: center;
+    }
+
+    /* Pseudo-classes */
+
+    button:not([type='submit']):hover {
+        background-color: #0056b3;
+    }
+
+    @media screen and (width <= 850px) {
+        #contact-us {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-medium);
+        }
+
+        #contact > div {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-small);
+        }
+
+        #contact > div > span {
+            border-radius: var(--border-radius-small);
+        }
+
+        #social > div {
+            flex-wrap: wrap;
+        }
+    }
+</style>
