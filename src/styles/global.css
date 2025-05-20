@@ -26,7 +26,7 @@
     --border-radius-medium: 16px;
     --border-radius-large: 32px;
 
-    /* 
+    /*
     Define font sizes for headings and body text.
     Use these to ensure a clear hierarchy and readability in the text.
      */
@@ -45,6 +45,11 @@
     --polaroid-width: 88mm;
     --polaroid-photo-size: calc(var(--polaroid-width) - 9mm);
     --polaroid-margin-top: calc((var(--polaroid-width) - var(--polaroid-photo-size)) / 2);
+
+    /*
+    Define the glassy effect for elements.
+     */
+    --background-glassy: light-dark(rgb(0 0 0 / 20%), rgb(255 255 255 / 10%));
 }
 
 * {
@@ -65,6 +70,24 @@ a[target='_blank'] {
     cursor: alias;
 }
 
+body,
+main {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-large);
+}
+
+button[type='submit'] {
+    color: white;
+    cursor: pointer;
+    background-color: var(--color-secondary);
+    border: none;
+    border-radius: var(--border-radius-large);
+    font-size: 1rem;
+    padding: 1rem 2rem;
+}
+
 form {
     align-items: center;
     display: flex;
@@ -76,7 +99,12 @@ form {
 }
 
 h1 {
-    font-size: calc(1.5 * var(--spacing-medium));
+    font-size: var(--font-size-heading);
+    white-space: nowrap;
+}
+
+section {
+    background-color: var(--background-glassy);
 }
 
 section.glassy {
@@ -92,6 +120,13 @@ section.glassy {
 svg {
     width: calc(1.5 * var(--spacing-medium));
     height: 100%;
+}
+
+@media screen and (width <= 1000px) {
+    body,
+    main {
+        gap: var(--spacing-small);
+    }
 }
 
 @media screen and (width <=320px) {
